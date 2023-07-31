@@ -20,7 +20,7 @@ function Signup() {
   //   const navigate = useNavigate();
   function handleSubmit(e) {
     e.preventDefault();
-    fetch("http://localhost:3000/signup", {
+    fetch("http://localhost:4001/signup", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
@@ -46,16 +46,16 @@ function Signup() {
           setPasswordConfirmation("");
           setErrors([]);
           alert(`Created Account!`);
-          //   navigate("/login");
+          
         });
       } else {
         r.json().then((e) => setErrors(e.errors));
       }
     });
   }
-  const handleCheckboxPasswordChange = (e) => {
-    setShowPassword(e.target.checked);
-  };
+//   const handleCheckboxPasswordChange = (e) => {
+//     setShowPassword(e.target.checked);
+//   };
   const handleCheckboxPasswordConfirmChange = (e) => {
     setShowConfirmPassword(e.target.checked);
   };
@@ -151,7 +151,7 @@ function Signup() {
                 autoComplete="new-password"
                 required
               />
-              <label className="signup-checkbox-label">
+              {/* <label className="signup-checkbox-label">
                 <input
                   type="checkbox"
                   className="show-password-toggle"
@@ -159,7 +159,7 @@ function Signup() {
                   onChange={handleCheckboxPasswordChange}
                 />
                 Show Password
-              </label>
+              </label> */}
               <label htmlFor="password-confirm">Confirm Password</label>
               <input
                 type={showConfirmPassword ? "text" : "password"}
