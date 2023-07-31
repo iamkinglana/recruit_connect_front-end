@@ -229,7 +229,7 @@ function Signup({RecruitConnect}) {
             </form>
             <div className="signup-container">
                 <p>@{new Date().getFullYear()}<span className="signup-container">{RecruitConnect}</span>.All Rights Reserved</p>
-                <p>Powered by <span className="signup-container">{RecruitConnect}</span></p>   
+                <p>Powered by RecruitConnect<span className="signup-container">{RecruitConnect}</span></p>   
             </div>
           </div>
         </div>
