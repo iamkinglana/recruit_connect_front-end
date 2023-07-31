@@ -3,7 +3,7 @@ import React, { useState } from "react";
 // import { Link, useNavigate } from "react-router-dom";
 // import { useNavigate, useState } from "react-router-dom";
 
-function Signup() {
+function Signup({RecruitConnect}) {
   const [first_name, setFirstName] = useState("");
   const [surname, setSurname] = useState("");
   const [middle_name, setMiddleName] = useState("");
@@ -86,7 +86,7 @@ function Signup() {
                 alt="Jobs Logo"
                 className="jobs-logo"
               />
-              Jobs
+              Recruit Connect
             </h2>
             <h3>Create Account</h3>
             <form action="/signup" onSubmit={handleSubmit} autoComplete="on">
@@ -218,7 +218,8 @@ function Signup() {
                 </button>
               </div>
               <p className="dont-have-an-account">
-                 Do You have an account? <a href="/login">Log In</a>
+                 Have an account? <a 
+                 href="/login">Log In</a>
               </p>
               <div style={{ color: "red", fontSize: "14px", padding: "10px" }}>
                 {errors.map((e, index) => (
@@ -226,6 +227,10 @@ function Signup() {
                 ))}
               </div>
             </form>
+            <div className="signup-container">
+                <p>@{new Date().getFullYear()}<span className="signup-container">{RecruitConnect}</span>.All Rights Reserved</p>
+                <p>Powered by <span className="signup-container">{RecruitConnect}</span></p>   
+            </div>
           </div>
         </div>
       </div>
