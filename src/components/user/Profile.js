@@ -4,7 +4,7 @@ const Profile = () => {
   const [jobSeeker, setJobSeeker] = useState(null);
 
   useEffect(() => {
-       fetch('http://localhost:3000/job_seekers')
+       fetch('/job_seekers')
       .then((response) => response.json())
       .then((data) => setJobSeeker(data))
       .catch((error) => console.error('Error fetching data:', error));
@@ -12,7 +12,7 @@ const Profile = () => {
 
   const handleFileChange = (e) => {
     const file = e.target.files[0];
-    // You can perform further actions with the selected file, such as uploading it to the server
+
   };
 
   if (!jobSeeker) {

@@ -2,12 +2,12 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 const Apply = () => {
-  // const navigate = useNavigate();
+  
 
   const [formData, setFormData] = useState({
     name: "",
     contact: "",
-    resume_attachment: null // Updated to null since it's a file attachment
+    resume_attachment: null
   });
 
   const handleNot = () => {
@@ -21,8 +21,7 @@ const Apply = () => {
   };
 
   const handleFileChange = (e) => {
-    // For file inputs, access the file through e.target.files[0]
-    const newData = { ...formData };
+     const newData = { ...formData };
     newData[e.target.id] = e.target.files[0];
     setFormData(newData);
   };
@@ -43,8 +42,7 @@ const Apply = () => {
       const data = await response.json();
       console.log(data);
 
-      // Navigate to the home page after successful submission
-      // navigate("/");
+
     } catch (error) {
       console.error("Error:", error);
     }

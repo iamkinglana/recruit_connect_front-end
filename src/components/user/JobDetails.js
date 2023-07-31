@@ -17,7 +17,7 @@ function JobDetails() {
   }, [id]);
 
   useEffect(() => {
-    // Fetch current user data here
+   
     fetchCurrentUser().then((user) => {
       setCurrentUser(user);
     });
@@ -25,23 +25,22 @@ function JobDetails() {
 
   const fetchCurrentUser = async () => {
     try {
-      const response = await fetch("/user"); // Replace with the actual endpoint to get the current user data
+      const response = await fetch("/user");
       if (response.ok) {
         const data = await response.json();
         return data;
       } else {
-        // Handle error, maybe the user is not logged in
-        return null;
+           return null;
       }
     } catch (error) {
-      // Handle error
+
       return null;
     }
   };
 
   const handleSavedJob = () => {
     if (!currentUser) {
-      // If the user is not logged in, handle this accordingly (e.g., show a login prompt)
+
       return;
     }
 
@@ -56,7 +55,7 @@ function JobDetails() {
     })
       .then((res) => res.json())
       .then((data) => {
-        setSavedJobs([...savedJobs, data]); // Add the saved job to the state
+        setSavedJobs([...savedJobs, data]);
         setFavClicked(true);
       });
   };
@@ -66,7 +65,7 @@ function JobDetails() {
       <div className="rest-details">
         <div className="rest-details-left">
           <p className="rest-details-header">{job.job_title}</p>
-          {/* Rest of the code */}
+
           {job.description}
           <button className="rest-details-btn" onClick={handleSavedJob}>
             {currentUser &&
