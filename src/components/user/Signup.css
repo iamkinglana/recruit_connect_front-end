@@ -8,49 +8,53 @@ body {
   a:hover {
     text-decoration: none;
   }
-  .signup-page {
+  .signup {
     display:flex;
     justify-content:center;
     align-items: center;
     height: 130vh;
-    background-color: grey;
+    background-color: bisque;
+    overflow: hidden;
   }
   .signup-container {
     display: flex;
-    width: 100%;
-    border: 1px solid 0d1b2a;
-    box-shadow: 0 0 10px 1b263b(0, 0, 0, 0.1);
-    background-color: ;
+    width: 80%;
+    length: 50%;
+    border: 1px solid #ccc;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    background-color: #fff;
     overflow: hidden;
-    font-family: "Arial, sans-serif";
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
   }
   .signup-information {
     flex: 1;
-    padding: 20px;
-    background-color: #415a77;
-    overflow: hidden;
+    padding: 30px;
+    background-color: lightsalmon;
+    overflow:auto;
     border: hidden;
   }
   .signup-form-container {
-    background: #431f64;
+    background: pink;
+    length: 50%;
+    width: fit-content;
   }
   .signup-information p {
-    font-size: 30px;
+    font-size: 50px;
     font-weight: 700;
-    color: #F5F5F5;
+    color: goldenrod;
   }
   .background-circle {
     width: 500px;
     height: 700px;
     margin: 20px auto;
-    overflow: hidden;
+    overflow: fit-content;
     border-top-right-radius: 30px;
   }
-  .jobs-image {
+  /* .jobs-image {
     width: 200%;
-    height: 100%;
-    object-fit:contain;
-  }
+    height: 150%;
+    object-fit:cover;
+  } */
   .signup-header {
     display: flex;
     justify-content: space-between;
@@ -60,11 +64,11 @@ body {
   .signup-header h2 {
     display: flex;
     align-items: center;
-    color: #007BFF;
+    color: mediumslateblue;
   }
-  .house-logo {
-    width: 30px;
-    height: 30px;
+  .jobs-logo {
+    width: 100px;
+    height: 100px;
     margin-right: 10px;
   }
   form {
@@ -99,7 +103,7 @@ body {
   }
   .signup-btn {
     padding: 10px 20px;
-    background-color: #007BFF;
+    background-color: lightcoral;
     color: #fff;
     border: none;
     border-radius: 4px;

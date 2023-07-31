@@ -67,13 +67,13 @@ function Signup() {
   };
   return (
     <>
-      <div className="signup-page">
+      <div className="signup">
         <div className="signup-container">
           <div className="signup-information">
             <p>Where Innovative Job seekers Meet Innovative Recruiters </p>
             <div className="background-circle">
               <img
-                className="jo-image"
+                className="jobs-image"
                 src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTmn6jkolnFNhsjhLUK989ov2Jc0ETGRndheg&usqp=CAU"
                 alt="apartment"
               />
@@ -83,8 +83,8 @@ function Signup() {
             <h2>
               <img
                 src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ9O5KNl_GEhNkm_gDxaoJHWFjVaY7iAZPbE_HmPd-hpkrD4wWVhYJFdRdBh894Y4_riZI&usqp=CAU"
-                alt="House Logo"
-                className="house-logo"
+                alt="Jobs Logo"
+                className="jobs-logo"
               />
               Jobs
             </h2>
