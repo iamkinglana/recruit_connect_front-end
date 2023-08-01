@@ -1,35 +1,41 @@
-import React, { useEffect, useState } from "react";
+import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 
-function AllJobs() {
+const Jobs = () => {
   const [jobs, setJobs] = useState([]);
 
   useEffect(() => {
-    // Fetch the list of all jobs from the backend and store them in the 'jobs' state
-    fetch("/jobs")
-      .then((res) => res.json())
-      .then((data) => {
-        setJobs(data);
-      })
-      .catch((error) => {
-        console.error("Error fetching jobs:", error);
-      });
+
+    fetchJobs();
   }, []);
+
+  const fetchJobs = async () => {
+    try {
+      const response = await fetch('/jobs');
+      const data = await response.json();
+      setJobs(data);
+    } catch (error) {
+      console.error(error);
+    }
+  };
 
   return (
     <div>
-      <h2>All Available Jobs</h2>
-      {jobs.map((job) => (
-        <div key={job.id} className="job-item">
-          <h3>{job.job_title}</h3>
-          <p>{job.job_description}</p>
-          <p>Location: {job.job_location}</p>
-          <p>Category: {job.job_category}</p>
-          <p>Salary: {job.salary_lowest} - {job.salary_highest}</p>
-          <button>View Details</button>
-        </div>
-      ))}
+      <h2>Job List</h2>
+      <ul>
+        {jobs.map((job) => (
+          <li key={job.id}>
+            <Link to={`/job/${job.id}`}>
+              <p>{job.job_title}</p>
+            </Link>
+            <p>{job.job_description}</p>
+            <p>{job.job_location}</p>
+            <p>{job.job_level}</p>
+          </li>
+        ))}
+      </ul>
     </div>
   );
-}
+};
 
-export default AllJobs;
+export default Jobs;
