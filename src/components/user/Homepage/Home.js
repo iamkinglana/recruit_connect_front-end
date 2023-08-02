@@ -1,17 +1,17 @@
 import React, { useState } from 'react';
 import './Home.css';
 import { useEffect } from 'react';
-import asusLogo from '../homepage-icons/asus.png';
-import googleLogo from '../homepage-icons/google.png';
-import huaweiLogo from '../homepage-icons/huawei.png';
-import microsoftLogo from '../homepage-icons/microsoft.png';
-import oracleLogo from '../homepage-icons/oracle.png';
-import ubuntuLogo from '../homepage-icons/ubuntu.png';
-import unityLogo from '../homepage-icons/unity.png';
-import tapImage from '../homepage-icons/tap.png';
-import docImage from '../homepage-icons/document.png';
-import moneyBag from '../homepage-icons/money-bag.png';
-import headerImage from '../homepage-icons/header-image.jpg';
+import asusLogo from '../../homepage-icons/asus.png';
+import googleLogo from '../../homepage-icons/google.png';
+import huaweiLogo from '../../homepage-icons/huawei.png';
+import microsoftLogo from '../../homepage-icons/microsoft.png';
+import oracleLogo from '../../homepage-icons/oracle.png';
+import ubuntuLogo from '../../homepage-icons/ubuntu.png';
+import unityLogo from '../../homepage-icons/unity.png';
+import tapImage from '../../homepage-icons/tap.png';
+import docImage from '../../homepage-icons/document.png';
+import moneyBag from '../../homepage-icons/money-bag.png';
+import headerImage from '../../homepage-icons/header-image.jpg';
 import { AiOutlineCloseCircle, AiOutlineSearch } from 'react-icons/ai';
 
 const Home = () => {
@@ -59,7 +59,14 @@ const Home = () => {
                                             onChange={handleSearchInputChange}
                                         />
                                         {searchQuery && <AiOutlineCloseCircle onClick={handleClearSearch} />}
-                                        <button className="homepage-header-search-button">Search</button>
+                                        <button >
+                                            <a class="fancy" href="#">
+                                                <span class="top-key"></span>
+                                                <span class="text">Search</span>
+                                                <span class="bottom-key-1"></span>
+                                                <span class="bottom-key-2"></span>
+                                            </a>
+                                        </button>
                                     </div>
                                 </div>
                             </form>
@@ -70,7 +77,7 @@ const Home = () => {
                     </div>
                 </div>
             </div>
-            <div className="homepage-body">
+            <div className=" homepage-body bg-light pt-3 pb-5" >
                 <div className="container trusted-by-section justify-content-center">
                     <p>
                         <strong>Trusted by</strong>
@@ -80,6 +87,7 @@ const Home = () => {
                             <img key={index} src={logo} alt={`Logo ${index + 1}`} className="trusted-logo" />
                         ))}
                     </div>
+                </div>
                 </div>
                 <div className="container why-us-section">
                     <p>
@@ -107,7 +115,7 @@ const Home = () => {
                         </div>
                     </div>
                 </div>
-                <div className="featured-jobs-section">
+                <div className="bg-light featured-jobs-section">
                     <p>
                         <strong>Featured Jobs</strong>
                     </p>
@@ -145,7 +153,7 @@ const Home = () => {
                         ))}
                     </div>
                 </div>
-            </div>
+            
         </>
     );
 };
