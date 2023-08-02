@@ -1,0 +1,182 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.trusted-by-section {
+    margin-top: 3%;
+    color: #000;
+    text-align: center;
+    font-family: DM Sans;
+    font-size: 2rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 2.6vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.trusted-logos {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.trusted-logo {
+
+    width: 4vw;
+    height: auto;
+    margin: 2%;
+    margin-top: 3%;
+    margin-bottom: 0;
+}
+
+.homepage-header {
+    background-color: white;
+    margin: 1%; 
+    justify-content: center;
+}
+
+.homepage-header img {
+    height: 35vh;
+    width: auto;
+}
+
+.homepage-header-text {
+    margin-top: 10%; 
+    align-items: center;
+    color: #000;
+    text-align: center;
+    font-family: DM Sans;
+    font-size: 2.5rem; 
+    font-style: normal;
+    font-weight: 700;
+    line-height: 150%;
+}
+
+.homepage-header span {
+    color: #2B85FF;
+    font-family: DM Sans;
+    font-size: 3.6vh; 
+    font-style: normal;
+    font-weight: 700;
+    line-height: 150%;
+}
+
+.homepage-header input {
+    width: 80%;
+    height: 20%; 
+    font-size: 2vh; 
+    justify-content: center;
+    border: none;
+}
+
+.searchbar-container {
+    padding: 2%; 
+    gap: 1vh; 
+}
+
+.homepage-header-search-button {
+    background-color: #2B85FF;
+    font-size: 2vh; 
+    width: 10vw;
+    border-radius: 1vw; 
+    margin: 0 1vw; 
+}
+.why-us-section{
+    margin-top: 1%;
+    padding-top: 4%;
+    color: #000;
+    text-align: center;
+    font-family: DM Sans;
+    font-size: 2.8vh;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 2.6vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.why-us-item{
+    margin-top: 5%;
+    border-radius: 10%;
+    justify-content: center;
+    align-items: center;
+}
+/* .why-us-item:hover{
+    background-color: silver;
+
+} */
+.why-us-item img{
+    margin-top: 2%;
+    margin-bottom: 1vh;
+    height: 6vh;
+    width: auto;
+}
+.why-us-item p{
+    font-size: large;
+}
+.why-us-item  h3{
+    font-size: large;
+    font-weight: bold;
+}
+.why-us-section span {
+    color: #2B85FF;
+    font-family: DM Sans;
+    font-size: 3vh; /* Change the font size to vh */
+    font-style: normal;
+    font-weight: 700;
+    line-height: 150%;
+}
+.featured-jobs-section{
+    margin-top: 1%;
+    padding-top: 4%;
+    color: #000;
+    text-align: center;
+    font-family: DM Sans;
+    font-size: 2.8vh;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 2.6vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-bottom: 3%;
+}
+.featured-job-logo{
+    height: 35vh;
+    width: auto;
+}
+.featured-job-title{
+    font-size: large;
+    font-weight: bold;
+}
+.featured-job-employer{
+    font-size: large;
+    font-weight: 300;
+    align-items: center;
+}
+.featured-job-location{
+    font-size: large;
+    font-weight: 300;
+    align-items: start;
+    justify-content: start;
+}
+.featured-job-application-deadline{
+    font-size: large;
+    font-weight: bold;
+}
+.text-green {
+    color: green;
+}
+
+.text-red {
+    color: red;
+}
+.featured-job-level{
+    font-size: large;
+    font-weight: 300;
+    align-items: start;
+    justify-content: start;
+}
