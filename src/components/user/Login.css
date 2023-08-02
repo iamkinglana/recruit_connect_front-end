@@ -34,11 +34,17 @@
     border-style:groove;
     text-align: center;
     
+    
 }
 
 .welcome-text-desc {
   text-align: center;
   font-size:x-large;
   font-family:'Times New Roman', Times, serif;
+}
+
+.logged-in-container {
+  text-align: right;
+   
 }
 

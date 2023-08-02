@@ -60,15 +60,16 @@ const Login = ({ setUser }) => {
                         Recruit-Connect <br />
                         welcome! 
                     </h1>
+                    
                     <p className="welcome-text-desc">
                    Find your Dream Job
                     </p>
                    
-                    {/* <div className="login-background">
+                    <div className="login-background">
                         <img className="job-image"
-                        scr="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSRPNEO8c7gcg7RsZ4SNTMpLSL8X-kOA_cfBXyKXvF0sW0Cig7upLZEpRAhAdM74Mc9IqY&usqp=CAU"
+                        scr="https://i0.wp.com/www.pd.co.ke/wp-content/uploads/2021/02/jobs.jpg"
                         alt="job" />
-                    </div> */}
+                    </div>
                 </div>
 
                 <div className="login-form-holder">
