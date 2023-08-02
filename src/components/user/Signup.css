@@ -121,7 +121,7 @@ body {
     background-color: black;
     color: #007BFF;
   }
-  .signup-with-google {
+  /* .signup-with-google {
     padding: 10px 20px;
     background-color: dimgray;
     color: black;
@@ -130,7 +130,7 @@ body {
     cursor: pointer;
     width: 300px;
     box-shadow: 0 8px 32px 0 rgb(35, 35, 39);
-  }
+  } */
   .signup-with-google:hover {
     background-color: black;
     color: dimgray;

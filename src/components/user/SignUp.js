@@ -82,7 +82,7 @@ function Signup({RecruitConnect}) {
       <div className="signup">
         <div className="signup-container">
           <div className="signup-information">
-            <p>Where Innovative Job seekers Meet Innovative Recruiters </p>
+            <p>The Job portal.Where Innovative Job seekers Meet Innovative Recruiters </p>
             <div className="background-circle">
               <img
                 className="jobs-image"
@@ -283,7 +283,7 @@ function Signup({RecruitConnect}) {
                 />
                 Remember Me
               </label>
-              
+
 
               <label
                 className="signup-checkbox-label"
@@ -327,8 +327,9 @@ function Signup({RecruitConnect}) {
               </div>
             </form>
             <div className="signup-container">
-                <p>@{new Date().getFullYear()}<span className="signup-container">{RecruitConnect}</span>.All Rights Reserved</p>
-                <p>Powered by RecruitConnect<span className="signup-container">{RecruitConnect}</span></p>   
+                
+                <p>CopyRights My RecruitConnect<span className="signup-container">{RecruitConnect}</span></p>
+                <p>{new Date().getFullYear()}<span className="signup-container">{RecruitConnect}</span>.All Rights Reserved</p>   
             </div>
           </div>
         </div>

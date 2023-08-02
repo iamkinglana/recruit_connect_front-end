@@ -6,7 +6,7 @@ import Login from './components/user/Login';
 
 function App() {
   return (
-<Signup/>
+<Login/>
 
 
   );

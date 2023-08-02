@@ -58,23 +58,23 @@ const Login = ({ setUser }) => {
                 <div className="welcome-text">
                     <h1 className="welcome-text-title">
                         Recruit-Connect <br />
-                        welcome
+                        welcome! 
                     </h1>
                     <p className="welcome-text-desc">
                    Find your Dream Job
                     </p>
                    
-                    <div className="login-background">
+                    {/* <div className="login-background">
                         <img className="job-image"
-                        scr="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR2EAK_eLedCwuEP5XUN_veE9uLo4kKi9WQ5g&usqp=CAU"
+                        scr="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSRPNEO8c7gcg7RsZ4SNTMpLSL8X-kOA_cfBXyKXvF0sW0Cig7upLZEpRAhAdM74Mc9IqY&usqp=CAU"
                         alt="job" />
-                    </div>
+                    </div> */}
                 </div>
 
                 <div className="login-form-holder">
                     <h3>Jobs</h3>
                     <p>Searching For Your Dream Job</p>
-                    <h2>Login</h2>
+                    <h2>LogIn</h2>
 
 
                     <form onSubmit={handlesubmit} autoComplete="on">
@@ -121,11 +121,15 @@ const Login = ({ setUser }) => {
                                 Login
                             </button>
                         </div>
+                        
                         <div className="signup-wrapper">
                     <p className="signup-text">Do you Have an Account?  <a href="/signup">Create Account</a>
                     </p>
                     {/* <button><Link to={'/signup'}>Sign up here</Link></button> */}
                    </div>
+                   <div className="logged-in-container">
+                                   <button onClick={handleLogout}>Logout</button>
+                        </div>
                     </form>
                 </div>
             </div>

@@ -1,0 +1,44 @@
+
+
+
+
+
+
+.login {
+    display:flex;
+    justify-content:center;
+    align-items: center;
+    height: 130vh;
+    background-color: bisque;
+    overflow: hidden;
+    background-image: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRVAbVLdoQef2V8_aUcVFAq0vkvTMiWi2Xdew&usqp=CAU);
+}
+
+.login-holder {
+    display:block;
+    width: 80%;
+    length: 50%;
+    border: 0.5px solid blanchedalmond;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+    background-color: blanchedalmond;
+    overflow: hidden;
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+
+}
+
+.welcome-text-title {
+    flex: 2;
+    padding: 10px;
+    background-color: pink;
+    overflow:auto;
+    border-style:groove;
+    text-align: center;
+    
+}
+
+.welcome-text-desc {
+  text-align: center;
+  font-size:x-large;
+  font-family:'Times New Roman', Times, serif;
+}
+
