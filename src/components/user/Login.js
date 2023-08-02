@@ -95,7 +95,7 @@ const Login = ({ setUser }) => {
                         <div className="login-form-wrapper">
                             <label htmlFor="password">Password</label>
                             <input
-                            type="password" 
+                            type={showPassword ? "text" : "password"} 
                             name="password"
                             value={formData.password}
                             placeholder="Enter Your Password" 

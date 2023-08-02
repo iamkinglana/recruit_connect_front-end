@@ -52,9 +52,9 @@ body {
     
   }
   .background-circle {
-    width: 500px;
-    height: 700px;
-    margin: 20px auto;
+    width: 600px;
+    height: 900px;
+    margin: 40px auto;
     overflow: fit-content;
     border-top-right-radius: 30px;
   }
