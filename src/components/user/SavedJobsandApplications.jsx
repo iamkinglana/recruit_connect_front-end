@@ -1,12 +1,13 @@
 import { useState } from 'react';
 import SavedJobsDashboard from './SavedJobs';
 import JobApplication from './JobApplication';
+import './SavedJobsandApplications.css'
 
 const ApplicationsAndSavedJobs = () => {
   const [activeTab, setActiveTab] = useState('applications');
 
   return (
-    <div>
+    <div className="ApplicationsAndSavedJobs">
       <div>
         <button onClick={() => setActiveTab('applications')} className={activeTab === 'applications' ? 'active' : ''}>
           Applications
@@ -15,7 +16,7 @@ const ApplicationsAndSavedJobs = () => {
           Saved Jobs
         </button>
       </div>
-      <div>
+      <div className="content">
         {activeTab === 'applications' ? (
           <JobApplication />
         ) : (
