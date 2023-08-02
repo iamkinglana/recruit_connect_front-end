@@ -4,13 +4,13 @@ import React, { useState } from "react";
 // import { useNavigate, useState } from "react-router-dom";
 
 function Signup({RecruitConnect}) {
-  const [first_name, setFirstName] = useState("");
-  const [surname, setSurname] = useState("");
-  const [middle_name, setMiddleName] = useState("");
+  // const [first_name, setFirstName] = useState("");
+  // const [surname, setSurname] = useState("");
+  const [full_name, setFullName] = useState("");
   const [email, setEmail] = useState("");
-  const [phonenumber, setPhoneNumber] = useState("");
-  const [password, setPassword] = useState("");
+  // const [phonenumber, setPhoneNumber] = useState("");
   const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
   const [password_confirmation, setPasswordConfirmation] = useState("");
   const [errors, setErrors] = useState([]);
   const [showPassword, setShowPassword] = useState(false);
@@ -24,11 +24,11 @@ function Signup({RecruitConnect}) {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
-        first_name,
-        surname,
-        middle_name,
+        // first_name,
+        // surname,
+        full_name,
         email,
-        phonenumber,
+        // phonenumber,
         username,
         password,
         password_confirmation,
@@ -36,11 +36,11 @@ function Signup({RecruitConnect}) {
     }).then((r) => {
       if (r.ok) {
         r.json().then(() => {
-          setFirstName("");
-          setSurname("");
-          setMiddleName("");
+          // setFirstName("");
+          // setSurname("");
+          setFullName("");
           setEmail("");
-          setPhoneNumber("");
+          // setPhoneNumber("");
           setUsername("");
           setPassword("");
           setPasswordConfirmation("");
@@ -91,7 +91,7 @@ function Signup({RecruitConnect}) {
             </h2>
             <h3>Create Account</h3>
             <form action="/signup" onSubmit={handleSubmit} autoComplete="on">
-              <label htmlFor="first_name">First Name</label>
+              {/* <label htmlFor="first_name">First Name</label>
               <input
                 type="text"
                 value={first_name}
@@ -100,8 +100,8 @@ function Signup({RecruitConnect}) {
                 onChange={(e) => setFirstName(e.target.value)}
                 autoComplete="first_name"
                 required
-              />
-              <label htmlFor="first_name">SurName</label>
+              /> */}
+              {/* <label htmlFor="first_name">SurName</label>
               <input
                 type="text"
                 value={surname}
@@ -110,16 +110,16 @@ function Signup({RecruitConnect}) {
                 onChange={(e) => setSurname(e.target.value)}
                 autoComplete="surname"
                 required
-              />
+              /> */}
 
-              <label htmlFor="middle_name">Middle Name </label>
+              <label htmlFor="full_name">Full Name </label>
               <input
                 type="text"
-                value={middle_name}
-                placeholder="Enter Middle Name"
-                id="middle_name"
-                onChange={(e) => setMiddleName(e.target.value)}
-                autoComplete="middle_name"
+                value={full_name}
+                placeholder="Enter FUll Name"
+                id="Full_name"
+                onChange={(e) => setFullName(e.target.value)}
+                autoComplete="Full_name"
                 required
               />
               <label htmlFor="email">Email</label>
@@ -132,7 +132,7 @@ function Signup({RecruitConnect}) {
                 autoComplete="email"
                 required
               />
-              <label htmlFor="phonenumber">Phone Number</label>
+              {/* <label htmlFor="phonenumber">Phone Number</label>
               <input
                 type="phonenumber"
                 value={phonenumber}
@@ -141,7 +141,18 @@ function Signup({RecruitConnect}) {
                 onChange={(e) => setPhoneNumber(e.target.value)}
                 autoComplete="phonenumber"
                 required
+              /> */}
+              <label htmlFor="username">Username</label>
+              <input
+                type="text"
+                value={username}
+                placeholder="Enter Username"
+                id="username"
+                onChange={(e) => setUsername(e.target.value)}
+                autoComplete="username"
+                required
               />
+
               <label htmlFor="password">Password</label>
               <input
                 type={showPassword ? "text" : "password"}
