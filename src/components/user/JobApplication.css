@@ -1,0 +1,57 @@
+/* Styling for the container div */
+.JobApplication {
+    width: 100%;
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+  }
+
+  /*  heading */
+  .JobApplication h2 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+  }
+
+  /*  labels */
+  .JobApplication label {
+    display: block;
+    margin-bottom: 10px;
+  }
+
+  /*  input fields */
+  .JobApplication input[type="text"],
+  .JobApplication input[type="file"] {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+  }
+
+  /*  submit button */
+  .JobApplication button {
+    background-color: #2B85FF;
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    margin-top: 20px;
+    cursor: pointer;
+    border-radius: 5px;
+  }
+
+  /*  file input label */
+  .JobApplication input[type="file"] + label {
+    background-color: #2B85FF;
+    color: white;
+    padding: 8px 16px;
+    border-radius: 3px;
+    cursor: pointer;
+    display: inline-block;
+  }
+
+  /* Hide the file input */
+  .JobApplication input[type="file"] {
+    display: none;
+  }
