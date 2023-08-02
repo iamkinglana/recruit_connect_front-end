@@ -12,7 +12,7 @@ body {
     text-decoration: none;
   }
   .signup {
-    display:flex;
+    display:block;
     justify-content:center;
     align-items: center;
     height: 130vh;
@@ -33,10 +33,12 @@ body {
   }
   .signup-information {
     flex: 1;
-    padding: 30px;
+    padding: 10px;
     background-color: lightgoldenrodyellow;
     overflow:auto;
     border: hidden;
+    font-size: larger;
+    font-family: 'Times New Roman', Times, serif;
   }
   .signup-form-container {
     background: pink;
