@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
@@ -13,7 +12,7 @@ const JobDetails = ({ jobId }) => {
         const data = await response.json();
         setJobDetails(data);
       } catch (error) {
-
+        console.error('Error fetching job details:', error);
       }
     };
 
@@ -29,9 +28,9 @@ const JobDetails = ({ jobId }) => {
         },
         body: JSON.stringify({ jobId }),
       });
-
-
+      // Handle the response here (e.g., show a success message).
     } catch (error) {
+      console.error('Error saving job:', error);
     }
   };
 
@@ -39,33 +38,32 @@ const JobDetails = ({ jobId }) => {
     return <div>Loading...</div>;
   }
 
-    return (
-        <React.Fragment>
-          <div>
-            <p><button onClick={handleSaveJob}>Save Job</button></p>
-            <Link to={`/apply_job/${jobId}`}>
-              <button>Apply for Job</button>
-            </Link>
-          </div>
+  const employerName = jobDetails.employer ? jobDetails.employer.name : 'Unknown Employer';
 
-          <div>
-            <h2>Job Title: {jobDetails.job_title}</h2>
-            <p>Company name:{jobDetails.employer.name} </p>
+  return (
+    <React.Fragment>
+      <div>
+        <p><button onClick={handleSaveJob}>Save Job</button></p>
+        <Link to={`/apply_job/${jobId}`}>
+          <button>Apply for Job</button>
+        </Link>
+      </div>
 
-            <p>Job Description: {jobDetails.job_description}</p>
-            <p>Job Location: {jobDetails.job_location}</p>
-            <p>Job Category: {jobDetails.job_category}</p>
-            <p>Job Level: {jobDetails.job_level}</p>
-            <p>Skills: {jobDetails.job_skills}</p>
-            <p>Qualifications: {jobDetails.job_qualifications}</p>
-            <p>Highest Salary: {jobDetails.salary_highest}</p>
-            <p>Lowest Salary: {jobDetails.salary_lowest}</p>
-            <p>Application deadline: {jobDetails.application_deadline}</p>
-
-          </div>
-        </React.Fragment>
+      <div>
+        <h2>Job Title: {jobDetails.job_title}</h2>
+        <p>Company name: {employerName}</p>
+        <p>Job Description: {jobDetails.job_description}</p>
+        <p>Job Location: {jobDetails.job_location}</p>
+        <p>Job Category: {jobDetails.job_category}</p>
+        <p>Job Level: {jobDetails.job_level}</p>
+        <p>Skills: {jobDetails.job_skills}</p>
+        <p>Qualifications: {jobDetails.job_qualifications}</p>
+        <p>Highest Salary: {jobDetails.salary_highest}</p>
+        <p>Lowest Salary: {jobDetails.salary_lowest}</p>
+        <p>Application deadline: {jobDetails.application_deadline}</p>
+      </div>
+    </React.Fragment>
   );
 };
 
 export default JobDetails;
-
