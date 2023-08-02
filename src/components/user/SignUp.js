@@ -17,6 +17,8 @@ function Signup({RecruitConnect}) {
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
   const [rememberMe, setRememberMe] = useState(false);
   const [agreeToTermsAndPrivacy, setAgreeToTermsAndPrivacy] = useState(false);
+  const [employer, setEmployer] = useState(false);
+  const [jobseeker, setJobSeeker] =useState(false);
   //   const navigate = useNavigate();
   function handleSubmit(e) {
     e.preventDefault();
@@ -65,6 +67,16 @@ function Signup({RecruitConnect}) {
   const handleCheckboxTermsAndPrivacyChange = (event) => {
     setAgreeToTermsAndPrivacy(event.target.checked);
   };
+
+  const handleCheckboxEmployerChange = (e) => {
+    setEmployer(e.target.checked);
+  };
+
+  const handleCheckboxJobSeekerChange = (e) => {
+    setJobSeeker(e.target.checked);
+  };
+
+
   return (
     <>
       <div className="signup">
@@ -116,7 +128,7 @@ function Signup({RecruitConnect}) {
               <input
                 type="text"
                 value={full_name}
-                placeholder="Enter FUll Name"
+                placeholder="Enter Full Name"
                 id="Full_name"
                 onChange={(e) => setFullName(e.target.value)}
                 autoComplete="Full_name"
@@ -191,11 +203,73 @@ function Signup({RecruitConnect}) {
                 />
                 Show Password
               </label>
-              <div>
+              {/* <div>
                 <p className="forgot-password">
-                  <a href="/reset-pass">Forgot Password?</a>
+                  <a href="/reset-password">Forgot Password?</a>
                 </p>
-              </div>
+              </div> */}
+              
+              {/* <label
+                className="signup-checkbox-label"
+                htmlFor="rememberMeCheckbox"
+              >
+                <input
+                  type="checkbox"
+                  className="remember-me-toggle"
+                  id="rememberMeCheckbox"
+                  checked={rememberMe}
+                  onChange={handleCheckboxRememberMeChange}
+                />
+                Remember Me
+              </label> */}
+
+              {/* <div>
+                <p className="forgot-password">
+                  <a href="/reset-password">Forgot Password?</a>
+                </p>
+              </div> */}
+              
+              {/* <label
+                className="signup-checkbox-label"
+                htmlFor="IagreetoalltheTermsandPrivacypolicyCheckbox"
+              >
+                <input
+                  type="checkbox"
+                  className="IagreetoalltheTermsandPrivacypolicy"
+                  id="IagreetoalltheTermsandPrivacypolicyCheckbox"
+                  checked={agreeToTermsAndPrivacy}
+                  onChange={handleCheckboxTermsAndPrivacyChange}
+                />
+                I agree to all the <a href="/terms">Terms</a>and
+                <a href="/privacy-policy">Privacy Policy</a>
+              </label> */}
+              <label
+                className="signup-checkbox-label"
+                htmlFor="employerCheckbox"
+              >
+                <input
+                  type="checkbox"
+                  className="employer"
+                  id="employerCheckbox"
+                  checked={employer}
+                  onChange={handleCheckboxEmployerChange}
+                />
+                EMPLOYER
+              </label>
+              <label
+                className="signup-checkbox-label"
+                htmlFor="jobseekerCheckbox"
+              >
+                <input
+                  type="checkbox"
+                  className="jobseeker"
+                  id="jobseekerCheckbox"
+                  checked={jobseeker}
+                  onChange={handleCheckboxJobSeekerChange}
+                />
+                JOB SEEKER
+              </label>
+
               <label
                 className="signup-checkbox-label"
                 htmlFor="rememberMeCheckbox"
@@ -209,6 +283,8 @@ function Signup({RecruitConnect}) {
                 />
                 Remember Me
               </label>
+              
+
               <label
                 className="signup-checkbox-label"
                 htmlFor="IagreetoalltheTermsandPrivacypolicyCheckbox"
@@ -223,11 +299,22 @@ function Signup({RecruitConnect}) {
                 I agree to all the <a href="/terms">Terms</a>and
                 <a href="/privacy-policy">Privacy Policy</a>
               </label>
+
+              <div>
+                <p className="forgot-password">
+                  <a href="/reset-password">Forgot Password?</a>
+                </p>
+              </div>
+              {/* <div className="signup-options">
+                <button type="submit" className="options-btn">Employer</button>
+
+                <button className="options-btn">Job seeker</button>
+              </div> */}
               <div className="signup-form-buttons">
                 <button type="submit" className="signup-btn">Create Account</button>
-                <button className="signup-with-google">
+                {/* <button className="signup-with-google">
                   Sign-in with Google
-                </button>
+                </button> */}
               </div>
               <p className="dont-have-an-account">
                  Have an account? <a 
