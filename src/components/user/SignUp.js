@@ -244,7 +244,7 @@ function Signup({RecruitConnect}) {
                 <a href="/privacy-policy">Privacy Policy</a>
               </label> */}
               <label
-                className="signup-checkbox-label"
+                className="signup-checkupbox-label"
                 htmlFor="employerCheckbox"
               >
                 <input
@@ -257,7 +257,7 @@ function Signup({RecruitConnect}) {
                 EMPLOYER
               </label>
               <label
-                className="signup-checkbox-label"
+                className="signup-checkupbox-label"
                 htmlFor="jobseekerCheckbox"
               >
                 <input
