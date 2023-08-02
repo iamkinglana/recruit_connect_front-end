@@ -20,7 +20,7 @@ function Signup({RecruitConnect}) {
   //   const navigate = useNavigate();
   function handleSubmit(e) {
     e.preventDefault();
-    fetch("./signup", {
+    fetch("/signup", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
