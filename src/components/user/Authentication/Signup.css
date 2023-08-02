@@ -1,0 +1,159 @@
+body {
+    margin: 0;
+    font-family: "Arial, sans-serif";
+    background-blend-mode: color;
+    /* background-image: url(https://www.edmissions.com/media/upload/blog/134._List_Of_9_Demanding_Jobs_In_UK_For_2023_vQ17LPL.png) */
+    
+  }
+  a {
+    color: black;
+  }
+  a:hover {
+    text-decoration: none;
+  }
+  .signup {
+    display:flex;
+    justify-content:center;
+    align-items: center;
+    height: 130vh;
+    background-color: bisque;
+    overflow: hidden;
+    background-image: url(data:image/jpeg;base64,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)
+    
+  }
+  .signup-container {
+    display: flex;
+    width: 80%;
+    length: 50%;
+    border: 1px solid blanchedalmond;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    background-color: blanchedalmond;
+    overflow: hidden;
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+  }
+  .signup-information {
+    flex: 1;
+    padding: 30px;
+    background-color: black;
+    overflow:auto;
+    border: hidden;
+  }
+  .signup-form-container {
+    background: pink;
+    length: 50%;
+    width: fit-content;
+  }
+  .signup-information p {
+    font-size: 50px;
+    font-weight: 700;
+    color: goldenrod;
+    
+  }
+  .background-circle {
+    width: 500px;
+    height: 700px;
+    margin: 20px auto;
+    overflow: fit-content;
+    border-top-right-radius: 30px;
+  }
+  /* .jobs-image {
+    width: 200%;
+    height: 150%;
+    object-fit:cover;
+  } */
+  .signup-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+  }
+  .signup-header h2 {
+    display: flex;
+    align-items: center;
+    color: mediumslateblue;
+  }
+  .jobs-logo {
+    width: 100px;
+    height: 100px;
+    margin-right: 10px;
+  }
+  form {
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+  }
+  label {
+    margin-bottom: 5px;
+  }
+  input[type="text"],
+  input[type="email"],
+  input[type="phonenumber"],
+  input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  .signup-checkbox-label {
+    font-size: 15px;
+  }
+  .forgot-password {
+    text-align: end;
+    margin: 0;
+  }
+  .signup-form-buttons {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+  }
+  .signup-btn {
+    padding: 10px 20px;
+    background-color: lightcoral;
+    color: black;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    width: 300px;
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.9);
+  }
+  .signup-btn:hover {
+    background-color: black;
+    color: #007BFF;
+  }
+  .signup-with-google {
+    padding: 10px 20px;
+    background-color: dimgray;
+    color: black;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    width: 300px;
+    box-shadow: 0 8px 32px 0 rgb(35, 35, 39);
+  }
+  .signup-with-google:hover {
+    background-color: black;
+    color: dimgray;
+  }
+  .you-have-an-account {
+    margin-top: 40px !important;
+    font-size: 16px;
+  }
+  .error-message {
+    color: #DC3545;
+    font-size: 14px;
+  }
+  .signup-content-container {
+    display: flex;
+  }
+  .login-information {
+    flex: 1;
+    padding: 20px;
+    background-color: #007BFF;
+    overflow: hidden;
+    border: hidden;
+  }
+  .signup-form-container {
+    flex: 1;
+    padding: 40px;
+  }

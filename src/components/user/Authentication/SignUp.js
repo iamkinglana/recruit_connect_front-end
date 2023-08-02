@@ -20,7 +20,7 @@ function Signup({RecruitConnect}) {
   //   const navigate = useNavigate();
   function handleSubmit(e) {
     e.preventDefault();
-    fetch("http://localhost:4001/signup", {
+    fetch("./signup", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
@@ -75,7 +75,8 @@ function Signup({RecruitConnect}) {
               <img
                 className="jobs-image"
                 src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTmn6jkolnFNhsjhLUK989ov2Jc0ETGRndheg&usqp=CAU"
-                alt="apartment"
+                // scr="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSwRS6BuZedqxdw44yDrvET5DcJxwLnn42Jzg&usqp=CAU"
+                alt="jobs"
               />
             </div>
           </div>
