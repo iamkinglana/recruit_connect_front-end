@@ -1,0 +1,56 @@
+/* Styling for the container div */
+.ApplicationsAndSavedJobs {
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+
+  /* Styling for the buttons */
+  .ApplicationsAndSavedJobs button {
+    background-color: #4CAF50; /* Green background color */
+    border: none;
+    color: white; /* White text color */
+    padding: 10px 20px; /* Some padding */
+    margin-right: 10px; /* Add a little space between the buttons */
+    cursor: pointer; /* Add a pointer cursor on hover */
+    border-radius: 5px; /* Rounded corners */
+  }
+
+  /* Styling for the active button */
+  .ApplicationsAndSavedJobs button.active {
+    background-color: #45a049; /* Slightly darker green for the active button */
+  }
+
+  /* Styling for the content div */
+  .ApplicationsAndSavedJobs .content {
+    margin-top: 20px;
+  }
+/* Styling for the container div */
+.ApplicationsAndSavedJobs {
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+
+  /* Styling for the buttons */
+  .ApplicationsAndSavedJobs button {
+    background-color: #2B85FF; /* Green background color */
+    border: none;
+    color: white; /* White text color */
+    padding: 10px 20px; /* Some padding */
+    margin-right: 10px; /* Add a little space between the buttons */
+    cursor: pointer; /* Add a pointer cursor on hover */
+    border-radius: 5px; /* Rounded corners */
+  }
+
+  /* Styling for the active button */
+  .ApplicationsAndSavedJobs button.active {
+    background-color: #2B85FF; /* Slightly darker green for the active button */
+  }
+
+  /* Styling for the content div */
+  .ApplicationsAndSavedJobs .content {
+    margin-top: 20px;
+  }

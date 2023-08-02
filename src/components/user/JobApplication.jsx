@@ -1,5 +1,6 @@
 
 import { useState } from 'react';
+import './JobApplication.css';
 
 const JobApplication = ({ jobId }) => {
   const [name, setName] = useState('');
@@ -23,7 +24,7 @@ const JobApplication = ({ jobId }) => {
   };
 
   return (
-    <div>
+    <div className="JobApplication">
       <h2>Job Application</h2>
       <label>
         Name:
@@ -32,6 +33,7 @@ const JobApplication = ({ jobId }) => {
       <label>
         Resume:
         <input type="file" onChange={(e) => setResume(e.target.files[0])} />
+        <label htmlFor="file">Choose File</label>
       </label>
       <button onClick={handleApply}>Submit Application</button>
     </div>

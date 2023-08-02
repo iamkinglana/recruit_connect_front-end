@@ -11,6 +11,7 @@ import Home from "./components/user/Homepage/Home";
 import AllJobs from "./components/user/AllJobs";
 import Notification from "./components/user/Notification";
 import NavBar from "./components/user/Navbar/NavBar";
+import ApplicationsAndSavedJobs from "./components/user/SavedJobsandApplications";
 
 const App = () => {
   return (
@@ -23,10 +24,12 @@ const App = () => {
       <Route path='home' element={<Home />}></Route>
       <Route path='jobs' element={<AllJobs />}></Route>
       <Route path='jobs/:id' element={<JobDetails/>}></Route>
+      <Route path="/ApplicationsAndSavedJobs" element={<ApplicationsAndSavedJobs/>} />
+
       <Route path='notifications' element={<Notification/>}></Route>
       {/* <Route path='applications' element={<Applications/>}></Route> */}
       <Route path='profile' element={<Profile/>} ></Route>
-    </Routes>  
+    </Routes>
   </>
   );
 };
