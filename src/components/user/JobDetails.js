@@ -1,112 +1,71 @@
-import { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
 
-function JobDetails() {
-  const [job, setJobs] = useState({});
-  const [savedJobs, setSavedJobs] = useState([]);
-  const [favClicked, setFavClicked] = useState(false);
-  const { id } = useParams();
-  const [currentUser, setCurrentUser] = useState(null);
+import React from 'react';
+import { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
+
+const JobDetails = ({ jobId }) => {
+  const [jobDetails, setJobDetails] = useState(null);
 
   useEffect(() => {
-    fetch(`/jobs/${id}`)
-      .then((res) => res.json())
-      .then((rest) => {
-        setJobs(rest);
-      });
-  }, [id]);
-
-  useEffect(() => {
-   
-    fetchCurrentUser().then((user) => {
-      setCurrentUser(user);
-    });
-  }, []);
-
-  const fetchCurrentUser = async () => {
-    try {
-      const response = await fetch("/user");
-      if (response.ok) {
+    const fetchJobDetails = async () => {
+      try {
+        const response = await fetch(`/jobs/${jobId}`);
         const data = await response.json();
-        return data;
-      } else {
-           return null;
+        setJobDetails(data);
+      } catch (error) {
+
       }
-    } catch (error) {
+    };
 
-      return null;
-    }
-  };
+    fetchJobDetails();
+  }, [jobId]);
 
-  const handleSavedJob = () => {
-    if (!currentUser) {
-
-      return;
-    }
-
-    fetch("/saved_jobs", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        saved_job: true,
-        job_id: job.id,
-        user_id: currentUser.id
-      })
-    })
-      .then((res) => res.json())
-      .then((data) => {
-        setSavedJobs([...savedJobs, data]);
-        setFavClicked(true);
+  const handleSaveJob = async () => {
+    try {
+      const response = await fetch('/saved_jobs', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ jobId }),
       });
+
+
+    } catch (error) {
+    }
   };
 
-  return (
-    <div>
-      <div className="rest-details">
-        <div className="rest-details-left">
-          <p className="rest-details-header">{job.job_title}</p>
+  if (!jobDetails) {
+    return <div>Loading...</div>;
+  }
 
-          {job.description}
-          <button className="rest-details-btn" onClick={handleSavedJob}>
-            {currentUser &&
-            savedJobs.some((savedJob) => savedJob.job_id === job.id)
-              ? "Added!"
-              : "Add to Saved Jobs"}
-          </button>
+    return (
+        <React.Fragment>
           <div>
-            <p className="pTag">Job Title</p>
-            <div>{job.job_title}</div>
-
-            <p className="pTag">Job Description</p>
-            <div>{job.job_description}</div>
-
-            <p className="pTag">Job Location</p>
-            <div>{job.job_location}</div>
-
-            <p className="pTag">Job Category</p>
-            <div>{job.job_category}</div>
-
-            <p className="pTag">Job Level</p>
-            <div>{job.job_level}</div>
-
-            <p className="pTag">Job Skills</p>
-            <div>{job.job_skills}</div>
-
-            <p className="pTag">Job Qualifications</p>
-            <div>{job.job_qualifications}</div>
-
-            <p className="pTag">Salary Range</p>
-            <div>
-              {job.salary_lowest} - {job.salary_highest}
-            </div>
-
-            <p className="pTag">Application Deadline</p>
-            <div>{job.application_deadline}</div>
+            <p><button onClick={handleSaveJob}>Save Job</button></p>
+            <Link to={`/apply_job/${jobId}`}>
+              <button>Apply for Job</button>
+            </Link>
           </div>
-        </div>
-      </div>
-    </div>
+
+          <div>
+            <h2>Job Title: {jobDetails.job_title}</h2>
+            <p>Company name:{jobDetails.employer.name} </p>
+
+            <p>Job Description: {jobDetails.job_description}</p>
+            <p>Job Location: {jobDetails.job_location}</p>
+            <p>Job Category: {jobDetails.job_category}</p>
+            <p>Job Level: {jobDetails.job_level}</p>
+            <p>Skills: {jobDetails.job_skills}</p>
+            <p>Qualifications: {jobDetails.job_qualifications}</p>
+            <p>Highest Salary: {jobDetails.salary_highest}</p>
+            <p>Lowest Salary: {jobDetails.salary_lowest}</p>
+            <p>Application deadline: {jobDetails.application_deadline}</p>
+
+          </div>
+        </React.Fragment>
   );
-}
+};
 
 export default JobDetails;
+
