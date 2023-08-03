@@ -85,9 +85,19 @@ const SignUp = () => {
                                     </div>
                                 </form>
                             </div>
+                       
                         </div>
                     </div>
+                    <div className="footer-link padding-top--24">
+                            <span>Already have an account? <a href="/login">Sign In</a></span>
+                            <div className="listing padding-top--24 padding-bottom--24 flex-flex center-center">
+                                <span><a href="#">© Recruit Connect</a></span>
+                                <span><a href="#">Contact</a></span>
+                                <span><a href="#">Privacy & terms</a></span>
+                            </div>
+                        </div>
                 </div>
+              
             </div>
         </div>
     );
