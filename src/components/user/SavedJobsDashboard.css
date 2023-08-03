@@ -1,0 +1,47 @@
+/*  container div */
+.SavedJobsDashboard {
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+
+  /*  heading */
+  .SavedJobsDashboard h1 {
+    font-size: 1.8rem;
+    margin-bottom: 20px;
+  }
+
+  /*  job items */
+  .SavedJobsDashboard .job-item {
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 20px;
+    margin-bottom: 20px;
+  }
+
+  /*  job title */
+  .SavedJobsDashboard .job-item h2 {
+    font-size: 1.4rem;
+    margin-bottom: 10px;
+  }
+
+  /*  job description */
+  .SavedJobsDashboard .job-item p {
+    margin-bottom: 10px;
+  }
+
+  /* the remove button */
+  .SavedJobsDashboard .job-item button {
+    background-color: #110d61; /* Red background color */
+    border: none;
+    color: white; /* White text color */
+    padding: 8px 16px; /* Some padding */
+    cursor: pointer; /* Add a pointer cursor on hover */
+    border-radius: 5px; /* Rounded corners */
+  }
+
+  /* Styling for the message when no saved jobs found */
+  .SavedJobsDashboard .no-jobs-found {
+    font-style: italic;
+  }
