@@ -5,6 +5,7 @@ import { Route, Routes} from 'react-router-dom';
 // import Apply from "./components/user/Apply";
 import JobDetails from "./components/user/JobDetails";
 import Profile from "./components/user/Profile";
+
 // import Footer from './components/user/Footer';
 import Signup from './components/user/Authentication/SignUp';
 import Home from "./components/user/Homepage/Home";
@@ -25,6 +26,7 @@ const App = () => {
       <Route path='jobs' element={<AllJobs />}></Route>
       <Route path='jobs/:id' element={<JobDetails/>}></Route>
       <Route path="/ApplicationsAndSavedJobs" element={<ApplicationsAndSavedJobs/>} />
+
 
       <Route path='notifications' element={<Notification/>}></Route>
       {/* <Route path='applications' element={<Applications/>}></Route> */}
