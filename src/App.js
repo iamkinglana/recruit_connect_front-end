@@ -5,13 +5,17 @@ import { Route, Routes} from 'react-router-dom';
 // import Apply from "./components/user/Apply";
 import JobDetails from "./components/user/JobDetails";
 import Profile from "./components/user/Profile";
+
 // import Footer from './components/user/Footer';
 import Signup from './components/user/Authentication/SignUp';
 import Home from "./components/user/Homepage/Home";
 import AllJobs from "./components/user/AllJobs";
 import Notification from "./components/user/Notification";
 import NavBar from "./components/user/Navbar/NavBar";
+
 import LoginPage from "./components/user/Authentication/Login";
+import ApplicationsAndSavedJobs from "./components/user/SavedJobsandApplications";
+
 const App = () => {
   return (
     <>
@@ -23,10 +27,13 @@ const App = () => {
       <Route path='home' element={<Home />}></Route>
       <Route path='jobs' element={<AllJobs />}></Route>
       <Route path='jobs/:id' element={<JobDetails/>}></Route>
+      <Route path="/ApplicationsAndSavedJobs" element={<ApplicationsAndSavedJobs/>} />
+
+
       <Route path='notifications' element={<Notification/>}></Route>
       {/* <Route path='applications' element={<Applications/>}></Route> */}
       <Route path='profile' element={<Profile/>} ></Route>
-    </Routes>  
+    </Routes>
   </>
   );
 };

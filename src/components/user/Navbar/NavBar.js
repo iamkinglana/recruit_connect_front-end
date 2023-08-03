@@ -41,6 +41,16 @@ const NavBar = ({ isLoggedIn, user }) => {
                     >
                         Notifications
                     </Nav.Link>
+                    <Nav.Link
+                        as={Link}
+                        to="/ApplicationsAndSavedJobs"
+                        className={activeLink === 'savedjobsandapplications' ? 'active' : ''}
+                        onClick={() => setActiveLink('savedjobsandapplications')}
+                    >
+                        Job Application
+                    </Nav.Link>
+
+
                 </Nav>
                 <Nav className='login-section'>
                     {isLoggedIn ? (
