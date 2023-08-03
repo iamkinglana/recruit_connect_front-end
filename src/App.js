@@ -12,6 +12,8 @@ import Home from "./components/user/Homepage/Home";
 import AllJobs from "./components/user/AllJobs";
 import Notification from "./components/user/Notification";
 import NavBar from "./components/user/Navbar/NavBar";
+
+import LoginPage from "./components/user/Authentication/Login";
 import ApplicationsAndSavedJobs from "./components/user/SavedJobsandApplications";
 
 const App = () => {
@@ -20,7 +22,7 @@ const App = () => {
     <NavBar/>
         <Routes>
       <Route path='' element={<Home />}></Route>
-      <Route path='login' ></Route>
+      <Route path='login' element={<LoginPage/>}></Route>
       <Route path="signup" element={<Signup/>}></Route>
       <Route path='home' element={<Home />}></Route>
       <Route path='jobs' element={<AllJobs />}></Route>
