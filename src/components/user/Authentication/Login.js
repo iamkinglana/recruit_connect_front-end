@@ -64,7 +64,7 @@ const LoginPage = () => {
                             </div>
                         </div>
                         <div className="footer-link padding-top--24">
-                            <span>Don't have an account? <a href="">Sign up</a></span>
+                            <span>Don't have an account? <a href="/signup">Sign up</a></span>
                             <div className="listing padding-top--24 padding-bottom--24 flex-flex center-center">
                                 <span><a href="#">© Recruit Connect</a></span>
                                 <span><a href="#">Contact</a></span>
