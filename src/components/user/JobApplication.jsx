@@ -12,7 +12,7 @@ const JobApplication = ({ jobId }) => {
     formData.append('resume', resume);
 
     try {
-      const response = await fetch(`http://localhost:3000/applications/${jobId}`, {
+      const response = await fetch(`applications/${jobId}`, {
         method: 'POST',
         body: formData,
       });
