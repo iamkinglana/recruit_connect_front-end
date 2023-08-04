@@ -39,8 +39,7 @@ const LoginPage = ({ setUser }) => {
             })
             .then((data) => {
                 const { user, token } = data;
-                console.log(data)
-                localStorage.setItem('token', token);
+                localStorage.setItem('authToken', token);
                 setUser(user);
                 navigate('/home');
                 console.log("Login Successful");

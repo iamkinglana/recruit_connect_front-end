@@ -2,12 +2,13 @@ import { Navbar, Nav, NavDropdown } from 'react-bootstrap';
 import { Link, Route } from 'react-router-dom';
 import Logo from '../../homepage-icons/logo.png';
 import './NavBar.css'
-import { useEffect, useState } from 'react';
+import { useEffect,useContext, useState } from 'react';
+import { UserContext } from '../../../App';
 
 
-const NavBar = ({ isLoggedIn, user }) => {
+const NavBar = () => {
     const [activeLink, setActiveLink] = useState('');
-
+    const { user } = useContext(UserContext);
 
 
     return (
@@ -53,8 +54,8 @@ const NavBar = ({ isLoggedIn, user }) => {
 
                 </Nav>
                 <Nav className='login-section'>
-                    {isLoggedIn ? (
-                        <NavDropdown title={`Welcome ${user}`} id="basic-nav-dropdown">
+                    {user ? (
+                        <NavDropdown title={`Welcome ${user.name}`} id="basic-nav-dropdown">
                             <NavDropdown.Item as={Link} to="/profile">
                                 Profile
                             </NavDropdown.Item>

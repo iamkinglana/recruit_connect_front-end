@@ -1,4 +1,4 @@
-import React, { useState, createContext } from "react";
+import React, { useState, createContext , useEffect} from "react";
 import { Route, Routes } from 'react-router-dom';
 import LoginPage from "./components/user/Authentication/Login";
 import Signup from './components/user/Authentication/SignUp';
@@ -10,11 +10,17 @@ import NavBar from "./components/user/Navbar/NavBar";
 import ApplicationsAndSavedJobs from "./components/user/SavedJobsandApplications";
 import Profile from "./components/user/Profile";
 
-// Create a UserContext
 export const UserContext = createContext();
 
 const App = () => {
   const [user, setUser] = useState(null);
+
+  useEffect(() => {
+    const authToken = localStorage.getItem('authToken');
+    if (authToken) {
+      setUser(user); 
+    }
+  }, []);
 
   return (
     <UserContext.Provider value={{ user, setUser }}>
