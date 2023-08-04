@@ -1,13 +1,53 @@
 import React from 'react';
 import './Login.css';
 import { useState } from 'react';
+import { useNavigate } from "react-router-dom";
 
-const LoginPage = () => {
+
+const LoginPage = ({ setUser }) => {
     const [showPassword, setShowPassword] = useState(false);
+    const navigate = useNavigate();
+    const [email, setEmail] = useState("");
+    const [password, setPassword] = useState("");
+    const [isLoading, setIsLoading] = useState(false);
+
 
     const togglePasswordVisibility = () => {
         setShowPassword(prevShowPassword => !prevShowPassword);
     };
+
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        setIsLoading(true);
+        fetch("http://localhost:3000/login", {
+            method: 'POST',
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({ email, password }),
+        })
+            .then((r) => {
+                setIsLoading(false);
+                if (r.ok) {
+                console.log(r)
+                 return r.json();
+                }
+                else {
+                    throw new Error("Login failed!");
+                }
+            })
+            .then((data) => {
+                const { user, token } = data;
+                localStorage.setItem('authToken', token);
+                setUser(user);
+                navigate('/home');
+                console.log("Login Successful");
+            })
+            .catch((error) => {
+                console.log("Error:", error);
+            });
+    }
 
     return (
         <div className="login-root">
@@ -27,7 +67,11 @@ const LoginPage = () => {
                                 <form id="stripe-login">
                                     <div className="field padding-bottom--24">
                                         <label htmlFor="email">Email</label>
-                                        <input type="email" name="email" />
+                                        <input
+                                            type="email"
+                                            name="email"
+                                            onChange={(e) => setEmail(e.target.value)}
+                                        />
                                     </div>
                                     <div className="field padding-bottom--24">
                                         <div className="grid--50-50">
@@ -41,6 +85,7 @@ const LoginPage = () => {
                                                 type={showPassword ? 'text' : 'password'}
                                                 name="password"
                                                 placeholder="Password"
+                                                onChange={(e) => setPassword(e.target.value)}
                                             />
                                             <button
                                                 type="button"
@@ -57,7 +102,7 @@ const LoginPage = () => {
                                         </label>
                                     </div>
                                     <div className="field padding-bottom--24">
-                                        <input type="submit" name="submit" value="Continue" />
+                                        <input type="submit" onClick={handleSubmit} name="submit" value="Continue" />
                                     </div>
 
                                 </form>
