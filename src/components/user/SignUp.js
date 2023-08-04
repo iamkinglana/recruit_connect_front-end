@@ -6,19 +6,20 @@ import React, { useState } from "react";
 function Signup({RecruitConnect}) {
   // const [first_name, setFirstName] = useState("");
   // const [surname, setSurname] = useState("");
-  const [full_name, setFullName] = useState("");
+  const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   // const [phonenumber, setPhoneNumber] = useState("");
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [password_confirmation, setPasswordConfirmation] = useState("");
+  const [role, setRole] = useState("");
   const [errors, setErrors] = useState([]);
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
   const [rememberMe, setRememberMe] = useState(false);
   const [agreeToTermsAndPrivacy, setAgreeToTermsAndPrivacy] = useState(false);
-  const [employer, setEmployer] = useState(false);
-  const [jobseeker, setJobSeeker] =useState(false);
+  
+  // const [jobseeker, setJobSeeker] =useState(false);
   //   const navigate = useNavigate();
   function handleSubmit(e) {
     e.preventDefault();
@@ -28,24 +29,26 @@ function Signup({RecruitConnect}) {
       body: JSON.stringify({
         // first_name,
         // surname,
-        full_name,
+        name,
         email,
         // phonenumber,
         username,
         password,
         password_confirmation,
+        role,
       }),
     }).then((r) => {
       if (r.ok) {
         r.json().then(() => {
           // setFirstName("");
           // setSurname("");
-          setFullName("");
+          setName("");
           setEmail("");
           // setPhoneNumber("");
           setUsername("");
           setPassword("");
           setPasswordConfirmation("");
+          setRole("");
           setErrors([]);
           alert(`Created Account!`);
           
@@ -68,13 +71,13 @@ function Signup({RecruitConnect}) {
     setAgreeToTermsAndPrivacy(event.target.checked);
   };
 
-  const handleCheckboxEmployerChange = (e) => {
-    setEmployer(e.target.checked);
+  const handleRoleChange = (event) => {
+    setRole(event.target.value);
   };
 
-  const handleCheckboxJobSeekerChange = (e) => {
-    setJobSeeker(e.target.checked);
-  };
+  // const handleCheckboxJobSeekerChange = (e) => {
+  //   setJobSeeker(e.target.checked);
+  // };
 
 
   return (
@@ -124,14 +127,14 @@ function Signup({RecruitConnect}) {
                 required
               /> */}
 
-              <label htmlFor="full_name">Full Name </label>
+              <label htmlFor="name">Name </label>
               <input
                 type="text"
-                value={full_name}
+                value={name}
                 placeholder="Enter Full Name"
-                id="Full_name"
-                onChange={(e) => setFullName(e.target.value)}
-                autoComplete="Full_name"
+                id="name"
+                onChange={(e) => setName(e.target.value)}
+                autoComplete="name"
                 required
               />
               <label htmlFor="email">Email</label>
@@ -243,32 +246,57 @@ function Signup({RecruitConnect}) {
                 I agree to all the <a href="/terms">Terms</a>and
                 <a href="/privacy-policy">Privacy Policy</a>
               </label> */}
-              <label
+              {/* <label
                 className="signup-checkupbox-label"
-                htmlFor="employerCheckbox"
+                htmlFor="roleCheckbox"
               >
                 <input
                   type="checkbox"
                   className="employer"
                   id="employerCheckbox"
-                  checked={employer}
-                  onChange={handleCheckboxEmployerChange}
+                  checked={role}
+                  onChange={handleRoleChange}
                 />
                 EMPLOYER
               </label>
               <label
                 className="signup-checkupbox-label"
-                htmlFor="jobseekerCheckbox"
+                htmlFor="roleCheckbox"
               >
                 <input
                   type="checkbox"
                   className="jobseeker"
-                  id="jobseekerCheckbox"
-                  checked={jobseeker}
-                  onChange={handleCheckboxJobSeekerChange}
+                  id="roleCheckbox"
+                  checked={role}
+                  onChange={handleCheckboxRoleChange}
                 />
                 JOB SEEKER
-              </label>
+              </label> */}
+              <div className="field padding-bottom--24">
+                    <label htmlFor="role">Role</label>
+                    <div className="radio-group">
+                      <label>
+                        <input
+                          type="radio"
+                          name="role"
+                          value="jobseeker"
+                          checked={role === "jobseeker"}
+                          onChange={handleRoleChange}
+                          required
+                        />                                                Job Seeker
+                      </label>
+                      <label>
+                        <input
+                          type="radio"
+                          name="role"
+                          value="employer"
+                          checked={role === "employer"}
+                          onChange={handleRoleChange}
+                          required
+                        />                                                Employer
+                      </label>
+                    </div>
+                  </div>
 
               <label
                 className="signup-checkbox-label"
@@ -320,11 +348,11 @@ function Signup({RecruitConnect}) {
                  Have an account? <a 
                  href="/login">Log In</a>
               </p>
-              <div style={{ color: "red", fontSize: "14px", padding: "10px" }}>
+              {/* <div style={{ color: "red", fontSize: "14px", padding: "10px" }}>
                 {errors.map((e, index) => (
                   <p key={index}>{e}</p>
                 ))}
-              </div>
+              </div> */}
             </form>
             <div className="signup-container">
                 

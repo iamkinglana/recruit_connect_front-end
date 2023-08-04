@@ -6,8 +6,10 @@ import Login from './components/user/Login';
 
 function App() {
   return (
-<Login/>
-
+    <>
+{/* <Login/> */}
+<Signup/>
+</>
 
   );
 }
