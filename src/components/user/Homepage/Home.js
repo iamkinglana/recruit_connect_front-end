@@ -92,7 +92,7 @@ const Home = () => {
                 <div className="container why-us-section">
                     <p>
                         <strong>
-                            Why Choose <span>Recruit Connect</span>
+                            Why Choose  <span>Recruit Connect</span>
                         </strong>
                     </p>
                     <div className="row">

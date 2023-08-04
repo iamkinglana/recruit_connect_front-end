@@ -26,7 +26,7 @@
   }
   .loginbackground {
       min-height: 692px;
-      position: fixed;
+      position: absolute;
       bottom: 0;
       left: 0;
       right: 0;
@@ -56,7 +56,7 @@
     grid-template-columns: [start] 1fr [left-gutter] repeat(16, 86.6px) [left-gutter] 1fr [end];
     grid-template-rows: [top] 1fr [top-gutter] repeat(8, 64px) [bottom-gutter] 1fr [bottom];
     justify-content: center;
-    margin: 0 -2%;
+    margin: 0 ;
     transform: rotate(-12deg) skew(-12deg);
     
   }
