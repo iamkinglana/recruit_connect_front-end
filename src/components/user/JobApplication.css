@@ -52,6 +52,6 @@
   }
 
   /* Hide the file input */
-  .JobApplication input[type="file"] {
+  /* .JobApplication input[type="file"] {
     display: none;
-  }
+  } */

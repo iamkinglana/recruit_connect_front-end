@@ -13,7 +13,7 @@ import Profile from "./components/user/Profile";
 export const UserContext = createContext();
 
 const App = () => {
-  const [user, setUser] = useState(null);
+
 
 
   useEffect(() => {
