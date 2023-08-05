@@ -15,12 +15,26 @@ export const UserContext = createContext();
 const App = () => {
 
 
+
   useEffect(() => {
     const authToken = localStorage.getItem('authToken');
     if (authToken) {
-      setUser(user); 
+      fetch('http://localhost:3000/login', {
+        method: 'GET',
+        headers: {
+          Authorization: `Bearer ${authToken}`,
+        },
+      })
+        .then((response) => response.json())
+        .then((data) => {
+          setUser(data.user);
+        })
+        .catch((error) => {
+          console.log("Error fetching user data:", error);
+        });
     }
   }, []);
+  
 
   return (
     <UserContext.Provider value={{ user, setUser }}>
@@ -31,7 +45,8 @@ const App = () => {
         <Route path="signup" element={<Signup setUser={setUser}/>} />
         <Route path='home' element={<Home />} />
         <Route path='jobs' element={<AllJobs />} />
-        <Route path='job/:id' element={<JobDetails />} />
+        <Route path='jobs' element={<AllJobs />} />
+        <Route path='jobs/:id' element={<JobDetails />} />
         <Route path="/ApplicationsAndSavedJobs" element={<ApplicationsAndSavedJobs />} />
         <Route path='notifications' element={<Notification />} />
         <Route path='profile' element={<Profile />} />

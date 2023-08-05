@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import './Login.css';
+import './Signup.css';
 import { useNavigate } from "react-router-dom";
 
 
@@ -61,7 +61,6 @@ const SignUp = ({setUser}) => {
 
   return (
     <div className="login-root">
-
       <div className="box-root flex-flex flex-direction--column" style={{ minHeight: '100vh', flexGrow: 1 }}>
         <div className="loginbackground box-background--white ">
           <div className="loginbackground-gridContainer">
