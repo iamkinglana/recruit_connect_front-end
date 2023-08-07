@@ -22,7 +22,7 @@ const Home = () => {
 
     useEffect(() => {
 
-        fetch('/jobs')
+        fetch('http://localhost:3000/jobs')
             .then(response => response.json())
             .then(data => setFeaturedJobs(data))
             .catch(error => console.error('Error fetching featured jobs:', error));
@@ -42,12 +42,12 @@ const Home = () => {
             <div className="homepage-header container">
                 <div className="row">
                     <div className="homepage-header-text col-md-6">
-                        <p>Get the right job that you deserve</p>
-                        <p>
-                            with <span>Recruit Connect</span>
+                        <p className="animated-text">Get the right job that you deserve</p>
+                        <p className="animated-text">
+                            with <span> Recruit Connect</span>
                         </p>
                         <div className="searchDiv ">
-                            <form action="" className="homepage-header-searchbar">
+                            <form action="" className="homepage-header-searchbar ">
                                 <div className="">
                                     <div className="searchbar-container d-flex align-items-center rounded-3 shadow-lg shadow-grey-400">
                                         <AiOutlineSearch />
@@ -121,7 +121,7 @@ const Home = () => {
                     </p>
                     <div className="container">
                         {featuredJobs.map((job, index) => (
-                            <div key={index} className="featured-jobs-item row align-items-center">
+                            <div key={index} className="featured-jobs-item row align-items-center animated-job">
                                 <div className="col-md-2">
                                     <img className="featured-job-logo" src={job.employer.logo} alt="" />
                                 </div>
