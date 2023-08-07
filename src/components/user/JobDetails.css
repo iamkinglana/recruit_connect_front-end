@@ -1,0 +1,51 @@
+.job-details-container {
+    width: 80%;
+    margin: auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+  }
+
+  .job-details-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+
+  .save-button,
+  .apply-button {
+    background-color: blue;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+
+  .success-message {
+    color: green;
+    margin-left: 10px;
+  }
+
+  .job-details-content {
+    display: flex;
+  }
+
+  .job-info {
+    flex: 1;
+    padding-right: 20px;
+  }
+
+  .salary-info {
+    flex: 1;
+    border-left: 1px solid #ccc;
+    padding-left: 20px;
+  }
+
+  .button-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+  }

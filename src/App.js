@@ -9,6 +9,7 @@ import Notification from "./components/user/Notification";
 import NavBar from "./components/user/Navbar/NavBar";
 import ApplicationsAndSavedJobs from "./components/user/SavedJobsandApplications";
 import Profile from "./components/user/Profile";
+import JobApplication from "./components/user/JobApplication";
 
 export const UserContext = createContext();
 
@@ -44,6 +45,7 @@ const App = () => {
         <Route path='home' element={<Home />} />
         <Route path='jobs' element={<AllJobs />} />
         <Route path='jobs/:id' element={<JobDetails />} />
+        <Route path='applications/:id' element={<JobApplication/>} />
         <Route path="/ApplicationsAndSavedJobs" element={<ApplicationsAndSavedJobs />} />
         <Route path='notifications' element={<Notification />} />
         <Route path='profile' element={<Profile />} />

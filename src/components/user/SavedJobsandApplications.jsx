@@ -1,63 +1,36 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
+import SavedJobsDashboard from './SavedJobs';
+import JobApplication from './JobApplication';
+import AppliedJobs from './AllJobsApplied';
+import './SavedJobsandApplications.css'
 
-const SavedJobs = () => {
-  const [savedJobs, setSavedJobs] = useState([]);
-  const [jobDetails, setJobDetails] = useState([]);
+const ApplicationsAndSavedJobs = () => {
+  const [activeTab, setActiveTab] = useState('applications');
+  const [appliedJobs, setAppliedJobs] = useState([]);
 
-  useEffect(() => {
-    const savedJobIds = JSON.parse(localStorage.getItem('savedJobs') || '[]');
-    setSavedJobs(savedJobIds);
-  }, []);
-
-  useEffect(() => {
-    const fetchJobDetails = async () => {
-      try {
-        const jobPromises = savedJobs.map(async (id) => {
-          const response = await fetch(`/jobs/${id}`);
-          const data = await response.json();
-          return { ...data, id: id };
-        });
-        const jobDetailsData = await Promise.all(jobPromises);
-        setJobDetails(jobDetailsData);
-      } catch (error) {
-        console.error('Error fetching job details:', error);
-      }
-    };
-
-    fetchJobDetails();
-  }, [savedJobs]);
-
-  const handleRemoveJob = (id) => {
-    // Remove the job from saved jobs list in localStorage
-    const updatedSavedJobs = savedJobs.filter((id) => id !== id);
-    localStorage.setItem('savedJobs', JSON.stringify(updatedSavedJobs));
-    setSavedJobs(updatedSavedJobs);
-
-    // Remove the job from jobDetails state
-    const updatedJobDetails = jobDetails.filter((job) => job.id !== id);
-    setJobDetails(updatedJobDetails);
+  const handleJobApplicationSubmit = (jobData) => {
+    setAppliedJobs([...appliedJobs, jobData]);
   };
 
-  if (!jobDetails.length) {
-    return <div>No saved jobs.</div>;
-  }
-
   return (
-    <div>
-      <h2>Saved Jobs</h2>
-      {jobDetails.map((job) => (
-        <div key={job.id}>
-          <h3>{job.job_title}</h3>
-          <p>Company name: {job.employer?.name || 'Unknown Employer'}</p>
-          <p>Location: {job.job_location?.job_location}</p>
-          <p>Job Level: {job.job_level}</p>
-          {/* Add other job details that you want to display */}
-          <button onClick={() => handleRemoveJob(job.id)}>Remove</button>
-          <hr />
-        </div>
-      ))}
+    <div className="ApplicationsAndSavedJobs">
+      <div>
+        <button onClick={() => setActiveTab('applications')} className={activeTab === 'applications' ? 'active' : ''}>
+          Applications
+        </button>
+        <button onClick={() => setActiveTab('savedJobs')} className={activeTab === 'savedJobs' ? 'active' : ''}>
+          Saved Jobs
+        </button>
+      </div>
+      <div className="content">
+        {activeTab === 'applications' ? (
+          <JobApplication onSubmit={handleJobApplicationSubmit} />
+        ) : (
+          <SavedJobsDashboard appliedJobs={appliedJobs} />
+        )}
+      </div>
     </div>
   );
 };
 
-export default SavedJobs;
+export default ApplicationsAndSavedJobs;

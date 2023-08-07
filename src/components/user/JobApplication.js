@@ -1,37 +1,49 @@
-import { useState } from "react";
+import React, { useState } from "react";
 import "./JobApplication.css";
 
-const JobApplication = ({ jobId }) => {
+const JobApplication = ({ onSubmit }) => {
   const [name, setName] = useState("");
   const [resume_attachment, setResume] = useState(null);
-  const [application_status, setApplicationStatus] = useState("Applied"); // Default value is 'Applied'
+  const [application_status, setApplicationStatus] = useState("Applied");
   const [cover_letter_attachment, setCoverLetter] = useState(null);
+  const [error, setError] = useState(null);
+  const [successMessage, setSuccessMessage] = useState(null);
 
   const handleApply = async () => {
     const formData = new FormData();
-    formData.append("name", name);
-    formData.append("resume_attachment", resume_attachment);
-    formData.append("application_status", application_status);
-    formData.append("cover_letter_attachment", cover_letter_attachment);
-    formData.append("cover_letter_attachment", cover_letter_attachment); // Add cover letter attachment
+    formData.append("application[name]", name);
+    formData.append("application[application_status]", application_status);
+    formData.append("application[resume_attachment]", resume_attachment);
+    formData.append("application[cover_letter_attachment]", cover_letter_attachment);
 
     try {
       const response = await fetch(
-        `http://localhost:3000/applications/${jobId}`,
+        `/applications`,
         {
           method: "POST",
-          body: formData
+          body: formData,
         }
       );
-      // Handle response here
+
+      if (response.ok) {
+        const jobData = await response.json();
+        onSubmit(jobData);
+        setSuccessMessage("Application submitted successfully!");
+        setError(null);
+      } else {
+        setSuccessMessage(null);
+        setError("Failed to submit application. Please try again later.");
+      }
     } catch (error) {
-      // Handle error here
+      setError("An error occurred while submitting the application.");
     }
   };
 
   return (
     <div className="JobApplication">
       <h2>Job Application</h2>
+      {error && <p className="error-message">{error}</p>}
+      {successMessage && <p className="success-message">{successMessage}</p>}
       <label>
         Name:
         <input
@@ -51,7 +63,6 @@ const JobApplication = ({ jobId }) => {
           onChange={(e) => setCoverLetter(e.target.files[0])}
         />
       </label>
-
       <label>
         Application Status:
         <select

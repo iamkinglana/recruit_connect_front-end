@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import './Profile.css';
+import SavedJobs from './SavedJobs'; // Import the updated SavedJobs component
 
 const Profile = () => {
   const [jobSeeker, setJobSeeker] = useState(null);
@@ -34,14 +35,14 @@ const Profile = () => {
 };
 
 const ProfileContent = ({ jobSeeker, handleFileChange }) => {
-  const { profile_image, name, contact, saved_jobs } = jobSeeker;
+  const { profile_image, name, contact } = jobSeeker;
 
   return (
     <div>
       <h1 className="profile-heading">Welcome, {name}!</h1>
       {profile_image && <img src={profile_image} alt="Profile" className="profile-image" />}
       <p className="profile-contact">Contact: {contact}</p>
-      <SavedJobs savedJobs={saved_jobs} />
+      <SavedJobs /> {/* Render the updated SavedJobs component */}
       <div>
         <h2 className="resume-heading">Upload Resume (PDF)</h2>
         <input type="file" accept=".pdf" className="resume-input" onChange={handleFileChange} />
@@ -49,22 +50,5 @@ const ProfileContent = ({ jobSeeker, handleFileChange }) => {
     </div>
   );
 };
-
-const SavedJobs = ({ savedJobs }) => (
-  <div>
-    <h2 className="saved-jobs-heading">Saved Jobs</h2>
-    {savedJobs && savedJobs.length > 0 ? (
-      <ul className="saved-jobs-list">
-        {savedJobs.map((savedJob) => (
-          <li key={savedJob.id} className="saved-jobs-list-item">
-            {savedJob.job.title} - {savedJob.job.company}
-          </li>
-        ))}
-      </ul>
-    ) : (
-      <p>No saved jobs found.</p>
-    )}
-  </div>
-);
 
 export default Profile;
