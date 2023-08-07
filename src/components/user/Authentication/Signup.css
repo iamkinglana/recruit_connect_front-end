@@ -25,7 +25,7 @@ a {
     overflow: hidden;
 }
 .loginbackground {
-    min-height: 692px;
+    min-height: 0px;
     position: fixed;
     bottom: 0;
     left: 0;
@@ -106,7 +106,7 @@ a {
 .formbg {
     margin: 0px auto;
     width: 100%;
-    max-width: 448px;
+    max-width: 500px;
     background: white;
     border-radius: 4px;
     box-shadow: rgba(60, 66, 87, 0.12) 0px 7px 14px 0px, rgba(0, 0, 0, 0.12) 0px 3px 6px 0px;
@@ -216,4 +216,13 @@ a.ssolink {
   background: #315cfd;
 color: white;
 font-size: 1.1em;
+}
+.role-toggle {
+  border: 0;
+  outline: 0;
+}
+.role-toggle label{
+  font-size: 1.1rem;
+  margin-left: 0px;
+  margin-right: 10%;
 }

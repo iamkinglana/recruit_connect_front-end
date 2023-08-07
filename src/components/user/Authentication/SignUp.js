@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import './Login.css';
+import './Signup.css';
 import { useNavigate } from "react-router-dom";
 
 
@@ -139,9 +139,9 @@ const SignUp = ({setUser}) => {
                       {showPassword ? 'Hide' : 'Show'}
                     </button>
                   </div>
-                  <div className="field padding-bottom--24">
+                  <div className=" padding-bottom--24 role-toggle">
                     <label htmlFor="role">Role</label>
-                    <div className="radio-group">
+                    <div className="d-flex  radio-group">
                       <label>
                         <input
                           type="radio"
@@ -150,6 +150,7 @@ const SignUp = ({setUser}) => {
                           checked={role === "jobseeker"}
                           onChange={handleRoleChange}
                           required
+                          
                         />                                                Job Seeker
                       </label>
                       <label>

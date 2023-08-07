@@ -1,6 +1,6 @@
 import { Navbar, Nav, NavDropdown } from 'react-bootstrap';
 import { Link, Route } from 'react-router-dom';
-import Logo from '../../homepage-icons/logo.png';
+import Logo from '../../homepage-icons/recruit-connect-logo.png';
 import './NavBar.css'
 import { useEffect,useContext, useState } from 'react';
 import { UserContext } from '../../../App';
@@ -8,11 +8,16 @@ import { UserContext } from '../../../App';
 
 const NavBar = () => {
     const [activeLink, setActiveLink] = useState('');
-    const { user } = useContext(UserContext);
+    const { user, setUser } = useContext(UserContext);
 
+    const handleLogout = () => {
+        localStorage.removeItem('authToken'); 
+        setUser(null); 
+    };
+    
 
     return (
-        <Navbar bg="light" expand="lg" className='navbar border m-0 p-2'>
+        <Navbar bg="light" expand="xl" className='navbar border m-0 p-2'>
             <Navbar.Brand as={Link} to="/" className='navbrand'>
                 <img className="navbar-logo" src={Logo} alt="" />
             </Navbar.Brand>
@@ -36,11 +41,11 @@ const NavBar = () => {
                     </Nav.Link>
                     <Nav.Link
                         as={Link}
-                        to="/notifications"
-                        className={activeLink === 'notifications' ? 'active' : ''}
-                        onClick={() => setActiveLink('notifications')}
+                        to="/employers"
+                        className={activeLink === 'employers' ? 'active' : ''}
+                        onClick={() => setActiveLink('employers')}
                     >
-                        Notifications
+                        Employers
                     </Nav.Link>
                     <Nav.Link
                         as={Link}
@@ -60,7 +65,7 @@ const NavBar = () => {
                                 Profile
                             </NavDropdown.Item>
                             <NavDropdown.Divider />
-                            <NavDropdown.Item>Logout</NavDropdown.Item>
+                            <NavDropdown.Item onClick={handleLogout}>Logout</NavDropdown.Item>
                         </NavDropdown>
                     ) : (
                         <>
