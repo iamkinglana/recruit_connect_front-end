@@ -1,12 +1,11 @@
-
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import './Jobs.css'; // Import your custom CSS file for styling
 
 const Jobs = () => {
   const [jobs, setJobs] = useState([]);
 
   useEffect(() => {
-
     fetchJobs();
   }, []);
 
@@ -21,17 +20,18 @@ const Jobs = () => {
   };
 
   return (
-    <div>
-      <h2>Job List</h2>
-      <ul>
+    <div className="jobs-container">
+      <h2 className="jobs-title">Job List</h2>
+      <ul className="jobs-list">
         {jobs.map((job) => (
-          <li key={job.id}>
-            <Link to={`/job/${job.id}`}>
-              <p>{job.job_title}</p>
+          <li key={job.id} className="job-item">
+            <Link to={`/jobs/${job.id}`} className="job-link">
+              <p className="job-title">{job.job_title}</p>
             </Link>
-            <p>{job.job_description}</p>
-            <p>{job.job_location}</p>
-            <p>{job.job_level}</p>
+            <p className="job-description">{job.job_description}</p>
+            <p className="job-details">
+              Location: {job.job_location} | Level: {job.job_level}
+            </p>
           </li>
         ))}
       </ul>

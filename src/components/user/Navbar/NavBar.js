@@ -55,6 +55,14 @@ const NavBar = () => {
                     >
                         Job Application
                     </Nav.Link>
+                    <Nav.Link
+                        as={Link}
+                        to="/Profile"
+                        className={activeLink === 'profile' ? 'active' : ''}
+                        onClick={() => setActiveLink('profile')}
+                    >
+                        Profile
+                    </Nav.Link>
 
 
                 </Nav>
