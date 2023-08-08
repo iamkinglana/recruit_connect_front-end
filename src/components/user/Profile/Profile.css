@@ -408,6 +408,10 @@ main{
   tbody tr:nth-child(even) {
     background-color: whitesmoke;
   }
-  
+  .material-symbols-outlined{
+    margin-bottom: 15px;
+    margin-right: 3px;
+  }
+
   
   
