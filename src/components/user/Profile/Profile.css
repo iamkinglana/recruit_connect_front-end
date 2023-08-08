@@ -306,6 +306,13 @@ main{
 .dashboard-content {
     padding: 20px;
     background-color: whitesmoke;
+    border-radius: 10px;
+    transition: 1.5s;
+    margin-left: 30px;
+  }
+  .dashboard-content:hover {
+    transform: scale(1.055);
+    box-shadow: 5px 5px 4px rgba(137, 137, 136, 0.6);
   }
   
   .dashboard-title {
