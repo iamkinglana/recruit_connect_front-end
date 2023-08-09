@@ -8,9 +8,9 @@ import JobDetails from "./components/user/JobDetails";
 import Notification from "./components/user/Notification";
 import NavBar from "./components/user/Navbar/NavBar";
 import ApplicationsAndSavedJobs from "./components/user/SavedJobsandApplications";
-import Profile from "./components/user/Profile";
 import Employers from "./components/user/Employers/Employers";
 import EmployerDetails from "./components/user/Employers/EmployerDetails";
+import Profile from "./components/user/Profile/Profile";
 
 export const UserContext = createContext();
 
@@ -20,9 +20,24 @@ const App = () => {
   useEffect(() => {
     const authToken = localStorage.getItem('authToken');
     if (authToken) {
-      setUser(user); 
+        try {
+            const payload = JSON.parse(atob(authToken.split('.')[1]));
+            setUser(payload.user); 
+            fetch(`http://localhost:3000/users/${payload.user_id}`)
+                .then((response) => response.json())
+                .then((completeUserData) => {
+                    setUser(completeUserData); 
+                    console.log("Login sucess")
+                })
+                .catch((error) => {
+                    console.error('Error fetching complete user data:', error);
+                });
+        } catch (error) {
+            console.error('Error decoding token:', error);
+        }
     }
-  }, []);
+}, []);
+
 
   return (
     <UserContext.Provider value={{ user, setUser }}>

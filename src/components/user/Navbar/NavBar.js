@@ -4,15 +4,19 @@ import Logo from '../../homepage-icons/recruit-connect-logo.png';
 import './NavBar.css'
 import { useEffect,useContext, useState } from 'react';
 import { UserContext } from '../../../App';
+import { useNavigate } from 'react-router-dom';
 
 
 const NavBar = () => {
     const [activeLink, setActiveLink] = useState('');
     const { user, setUser } = useContext(UserContext);
+    const navigate = useNavigate();
+
 
     const handleLogout = () => {
         localStorage.removeItem('authToken'); 
         setUser(null); 
+        navigate('/login')
     };
     
 

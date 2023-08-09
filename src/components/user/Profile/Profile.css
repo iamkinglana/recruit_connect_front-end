@@ -1,0 +1,319 @@
+*{
+    margin: 0;
+    padding: 0;
+    outline: none;
+    appearance: 0;
+    border: 0;
+    text-decoration: none;
+    list-style: none;
+    box-sizing: border-box;
+}
+.profile-container{
+    margin: 0;
+    padding: 0;
+    display: grid;
+    width: 96%;
+    margin: 0 10px;
+    gap: 1.8rem;
+    grid-template-columns: 20rem auto;
+}
+.profile-container a{
+    color: black;
+    text-decoration: none;
+}
+.profile-container  img{
+    display: block;
+    width: 100%;
+}
+.profile-container  h1{
+    font-weight: 800;
+    font-size: 1.8rem;
+}
+.profile-container h2{
+    font-size: 1.4rem;
+}
+ h3{
+    font-size: 0.87rem;
+}
+ h4 {
+    font-size: 0.8rem;
+}
+ h5{
+    font-size: 0.77rem;
+}
+small{
+    font-size: .75rem;
+}
+.profile-container .profile-photo{
+    width: 2.8rem;
+    height: auto;
+    border-radius: 50%;
+}
+.text-muted{
+    color: rgb(146, 142, 142);
+}
+p{
+    color: black;
+}
+.primary{
+    color: #2B85FF;
+}
+.danger{
+    color: red;
+}
+.success{
+    color: greenyellow;
+}
+.warnings{
+    color: maroon;
+}
+aside{
+    height: 100vh;
+    background-color: white;
+}
+aside .top{
+    background-color: white;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 1.4rem;
+    margin-bottom: 0.5rem;
+}
+aside .logo img{
+    height: 3rem;
+    width: auto;
+}
+aside .close{
+    display: none;
+}
+aside .sidebar{
+    display: flex;
+    flex-direction: column;
+    height: 86vh;
+    position: relative;
+    top: 3rem;
+}
+aside h3{
+    font-weight: 500;
+    font-size: larger;
+}
+aside .sidebar a {
+    display: flex;
+    color: grey;
+    margin-left: 2rem;
+    align-items: center;
+    position: relative;
+    height: 3.7rem;
+    transition: all 300ms ease;
+}
+aside .sidebar a span{
+    font-size: 1.6rem;
+    transition: all 300ms ease;
+}
+aside .sidebar a:last-child{
+    position: absolute;
+    bottom: 20rem;
+    width: 100%;
+}
+aside .sidebar a.active {
+    background: rgb(226, 225, 225);
+    color: #2B85FF;
+    margin-left: 0;
+}
+aside .sidebar a.active:before{
+    content: "";
+    width: 6px;
+    height: 100%;
+    background: #2B85FF;
+}
+aside .sidebar a.active span{
+    color: #2B85FF;
+    margin-left: calc(1rem - 3px);
+}
+aside .sidebar a:hover{
+    color: #2B85FF;
+}
+aside .sidebar a:hover span{
+    margin-left: 1rem;
+}
+
+/* Main */
+main{
+    margin-top: 1.4rem;
+    background-color: white;
+}
+.reopen-aside{
+    display: none;}
+main .date{
+    display: inline-block;
+    background-color: white;
+    border-radius: 20%;
+}
+main .insights {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.6rem;
+}
+main .insights > div {
+    width: 100%;
+    background-color: white;
+    padding: 10px;
+    border-radius: 20%;
+    margin-top: 1rem;
+    box-shadow: none;
+    border: 1px solid rgb(70, 69, 69);
+    transition: all 300ms ease;
+}
+main .insights > div:hover{
+    background-color: white;
+}
+main .insights > div span {
+    background: black;
+    padding: 0.5rem;
+    border-radius: 50%;
+    color: white;
+    font-size: 2rem;
+}
+main .insights > div .middle{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+main .insights h3{
+    margin: 1rem 0  0.6rem;
+}
+main .insights .progress-container{
+    position: relative;
+    width: auto;
+    height: auto;
+    border-radius: 50%;
+}
+main .insights svg{
+    width: 7rem;
+    height: 7rem;
+}
+main .insights svg circle{
+    fill: none;
+    stroke: blue;
+    stroke-width: 14;
+    stroke-linecap: round;
+    transform: translate(5px, 5px);
+    stroke-dasharray: 110 ;
+    stroke-dashoffset: 92;
+}
+main .total-applications{
+    width: 22vw;
+    height: auto;
+    margin-left: auto;
+    margin-right:auto;
+}
+main .recent-applications{
+    margin-top: 2rem;
+}
+main .recent-applications h2{
+    margin-bottom: 0.8rem;
+}
+main .recent-applications table{
+    
+    background-color: aliceblue;
+    width: 100%;
+    text-align: center;
+    box-shadow: 10%;
+
+}
+main .recent-applications table:hover{
+    box-shadow: none;
+}
+main table tbody{
+    height: 2.8rem;
+    border-bottom: 1px solid rgb(180, 179, 179);
+    color: silver;
+
+}
+@media screen and (max-width: 768px) {
+    aside .top{
+        background-color: transparent;
+    }
+    aside .close{
+        display: flex;
+    }
+    .profile-container.aside-open aside {
+        transform: translateX(0);
+      }
+      
+      .profile-container.aside-closed aside {
+        transform: translateX(-100%);
+      }
+    .profile-container{
+        width: 100%;
+        grid-template-columns: 1fr;
+    }
+    aside{
+        position: fixed;
+        left: 0;
+        background-color: whitesmoke;
+        width: 20rem;
+        z-index: 3;
+        box-shadow: 1rem 3rem 4rem whitesmoke;
+        height: 100vh;
+        padding-right: 20px;
+    }
+    main{
+        margin-top: 2rem;
+        padding: 0 1rem;
+    }
+    main .recent-applications{
+        position: relative;
+        margin: 3rem 0 0 0;
+        width: 100%;
+    }
+    .reopen-aside{
+        display: block;
+        background-color: transparent;
+    }
+}
+.profile-top{
+    margin: 0;
+    padding: 10px;
+    justify-content: center;
+}
+.profile-top img{
+    height: 30vh;
+    width: auto;
+    border-radius: 50%;
+    outline: 10px solid black;
+    margin-bottom: 10px;
+    justify-content: flex-end;
+}
+.profile-top{
+    justify-content: end;
+    /* border: 1px solid black; */
+    margin-top: 10px;
+    padding-top: 20px;
+    margin-left: auto;
+    margin-right: auto;
+}
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,600;1,600&family=Roboto:wght@100;300;400;500;700;900&display=swap');
+.profile-top .profile-name{
+    font-family: 'Poppins', sans-serif;
+    font-size: 3rem;
+    margin-top: 20%;
+}
+.profile-top .profile-email{
+    color: rgb(51, 51, 51);
+    font-size: larger;
+  margin-bottom: 10%;
+    
+}
+.profile-content h2{
+    font-weight: 900;
+    font-size: xx-large;
+}
+.profile-bottom{
+    margin-top: 5%;
+}
+.profile-bottom .user-contact .material-symbols-outlined {
+    height: 100px;
+    width: auto;
+
+}
