@@ -17,6 +17,7 @@ export const UserContext = createContext();
 const App = () => {
   const [user, setUser] = useState(null);
 
+
   useEffect(() => {
     const authToken = localStorage.getItem('authToken');
     if (authToken) {
@@ -47,6 +48,7 @@ const App = () => {
         <Route path='login' element={<LoginPage setUser={setUser} />} />
         <Route path="signup" element={<Signup setUser={setUser}/>} />
         <Route path='home' element={<Home />} />
+        <Route path='jobs' element={<AllJobs />} />
         <Route path='jobs' element={<AllJobs />} />
         <Route path='jobs/:id' element={<JobDetails />} />
         <Route path='employers' element={<Employers />} />
