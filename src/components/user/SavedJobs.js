@@ -1,51 +1,63 @@
 import React, { useState, useEffect } from 'react';
-import './SavedJobsDashboard.css';
 
-const SavedJobsDashboard = () => {
+const SavedJobs = () => {
   const [savedJobs, setSavedJobs] = useState([]);
+  const [jobDetails, setJobDetails] = useState([]);
 
   useEffect(() => {
-    const fetchSavedJobs = async () => {
+    const savedJobIds = JSON.parse(localStorage.getItem('savedJobs') || '[]');
+    setSavedJobs(savedJobIds);
+  }, []);
+
+  useEffect(() => {
+    const fetchJobDetails = async () => {
       try {
-        const response = await fetch('http://localhost:3000/saved_jobs');
-        const data = await response.json();
-        setSavedJobs(data);
+        const jobPromises = savedJobs.map(async (id) => {
+          const response = await fetch(`/jobs/${id}`);
+          const data = await response.json();
+          return { ...data, id: id };
+        });
+        const jobDetailsData = await Promise.all(jobPromises);
+        setJobDetails(jobDetailsData);
       } catch (error) {
-        // Handle error if needed
+        console.error('Error fetching job details:', error);
       }
     };
 
-    fetchSavedJobs();
-  }, []);
+    fetchJobDetails();
+  }, [savedJobs]);
 
-  const handleRemoveJob = async (jobId) => {
-    try {
-      const response = await fetch(`http://localhost:3000/saved_jobs/${jobId}`, {
-        method: 'DELETE',
-      });
+  const handleRemoveJob = (id) => {
+    // Remove the job from saved jobs list in localStorage
+    const updatedSavedJobs = savedJobs.filter((id) => id !== id);
+    localStorage.setItem('savedJobs', JSON.stringify(updatedSavedJobs));
+    setSavedJobs(updatedSavedJobs);
 
-      setSavedJobs(savedJobs.filter((job) => job.id !== jobId));
-    } catch (error) {
-      // Handle error if needed
-    }
+    // Remove the job from jobDetails state
+    const updatedJobDetails = jobDetails.filter((job) => job.id !== id);
+    setJobDetails(updatedJobDetails);
   };
 
+  if (!jobDetails.length) {
+    return <div>No saved jobs.</div>;
+  }
+
   return (
-    <div className="SavedJobsDashboard">
-      <h1>Saved Jobs Dashboard</h1>
-      {savedJobs.length === 0 ? (
-        <p className="no-jobs-found">No saved jobs found.</p>
-      ) : (
-        savedJobs.map((job) => (
-          <div className="job-item" key={job.id}>
-            <h2>{job.title}</h2>
-            <p>{job.description}</p>
-            <button onClick={() => handleRemoveJob(job.id)}>Remove Job</button>
-          </div>
-        ))
-      )}
+    <div>
+      <h2>Saved Jobs</h2>
+      {jobDetails.map((job) => (
+        <div key={job.id}>
+          <h3>{job.job_title}</h3>
+          <p>Company name: {job.employer?.name || 'Unknown Employer'}</p>
+          <p>Location: {job.job_location?.job_location}</p>
+          <p>Job Level: {job.job_level}</p>
+          {/* Add other job details that you want to display */}
+          <button onClick={() => handleRemoveJob(job.id)}>Remove</button>
+          <hr />
+        </div>
+      ))}
     </div>
   );
 };
 
-export default SavedJobsDashboard;
+export default SavedJobs;

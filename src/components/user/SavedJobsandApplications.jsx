@@ -1,10 +1,16 @@
-import { useState } from 'react';
+import React, { useState } from 'react';
 import SavedJobsDashboard from './SavedJobs';
 import JobApplication from './JobApplication';
+import AppliedJobs from './AllJobsApplied';
 import './SavedJobsandApplications.css'
 
 const ApplicationsAndSavedJobs = () => {
   const [activeTab, setActiveTab] = useState('applications');
+  const [appliedJobs, setAppliedJobs] = useState([]);
+
+  const handleJobApplicationSubmit = (jobData) => {
+    setAppliedJobs([...appliedJobs, jobData]);
+  };
 
   return (
     <div className="ApplicationsAndSavedJobs">
@@ -18,9 +24,9 @@ const ApplicationsAndSavedJobs = () => {
       </div>
       <div className="content">
         {activeTab === 'applications' ? (
-          <JobApplication />
+          <JobApplication onSubmit={handleJobApplicationSubmit} />
         ) : (
-          <SavedJobsDashboard />
+          <SavedJobsDashboard appliedJobs={appliedJobs} />
         )}
       </div>
     </div>
