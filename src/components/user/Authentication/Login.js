@@ -21,33 +21,32 @@ const LoginPage = ({ setUser }) => {
         e.preventDefault();
         setIsLoading(true);
         fetch("http://localhost:3000/login", {
-            method: 'POST',
-            headers: {
-                "Content-Type": "application/json",
-            },
-            body: JSON.stringify({ email, password }),
+          method: 'POST',
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ email, password }),
         })
-            .then((r) => {
-                setIsLoading(false);
-                if (r.ok) {
-                console.log(r)
-                 return r.json();
-                }
-                else {
-                    throw new Error("Login failed!");
-                }
-            })
-            .then((data) => {
-                const { user, token } = data;
-                localStorage.setItem('authToken', token);
-                setUser(user);
-                navigate('/home');
-                console.log("Login Successful");
-            })
-            .catch((error) => {
-                console.log("Error:", error);
-            });
-    }
+          .then((r) => {
+            setIsLoading(false);
+            if (r.ok) {
+              return r.json();
+            } else {
+              throw new Error("Login failed!");
+            }
+          })
+          .then((data) => {
+            const { user, associated_data, token } = data;
+            localStorage.setItem('authToken', token);
+            setUser({ ...user, associated_data });
+            console.log(associated_data)
+            navigate('/home');
+            console.log("Login Successful");
+          })
+          .catch((error) => {
+            console.log("Error:", error);
+          });
+      };
 
     return (
         <div className="login-root">

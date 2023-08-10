@@ -144,92 +144,9 @@ main{
 }
 .reopen-aside{
     display: none;}
-main .date{
-    display: inline-block;
-    background-color: white;
-    border-radius: 20%;
-}
-main .insights {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 1.6rem;
-}
-main .insights > div {
-    width: 100%;
-    background-color: white;
-    padding: 10px;
-    border-radius: 20%;
-    margin-top: 1rem;
-    box-shadow: none;
-    border: 1px solid rgb(70, 69, 69);
-    transition: all 300ms ease;
-}
-main .insights > div:hover{
-    background-color: white;
-}
-main .insights > div span {
-    background: black;
-    padding: 0.5rem;
-    border-radius: 50%;
-    color: white;
-    font-size: 2rem;
-}
-main .insights > div .middle{
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-}
-main .insights h3{
-    margin: 1rem 0  0.6rem;
-}
-main .insights .progress-container{
-    position: relative;
-    width: auto;
-    height: auto;
-    border-radius: 50%;
-}
-main .insights svg{
-    width: 7rem;
-    height: 7rem;
-}
-main .insights svg circle{
-    fill: none;
-    stroke: blue;
-    stroke-width: 14;
-    stroke-linecap: round;
-    transform: translate(5px, 5px);
-    stroke-dasharray: 110 ;
-    stroke-dashoffset: 92;
-}
-main .total-applications{
-    width: 22vw;
-    height: auto;
-    margin-left: auto;
-    margin-right:auto;
-}
-main .recent-applications{
-    margin-top: 2rem;
-}
-main .recent-applications h2{
-    margin-bottom: 0.8rem;
-}
-main .recent-applications table{
-    
-    background-color: aliceblue;
-    width: 100%;
-    text-align: center;
-    box-shadow: 10%;
 
-}
-main .recent-applications table:hover{
-    box-shadow: none;
-}
-main table tbody{
-    height: 2.8rem;
-    border-bottom: 1px solid rgb(180, 179, 179);
-    color: silver;
 
-}
+
 @media screen and (max-width: 768px) {
     aside .top{
         background-color: transparent;
@@ -252,6 +169,7 @@ main table tbody{
         position: fixed;
         left: 0;
         background-color: whitesmoke;
+        opacity: 97%;
         width: 20rem;
         z-index: 3;
         box-shadow: 1rem 3rem 4rem whitesmoke;
@@ -305,15 +223,191 @@ main table tbody{
   margin-bottom: 10%;
     
 }
-.profile-content h2{
-    font-weight: 900;
-    font-size: xx-large;
-}
-.profile-bottom{
-    margin-top: 5%;
-}
-.profile-bottom .user-contact .material-symbols-outlined {
-    height: 100px;
-    width: auto;
 
-}
+.profile-edit-form {
+    padding: 20px;
+    background-color: whitesmoke;
+    border-radius: 10px;
+    margin: 20px 0;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .form-group {
+    margin-bottom: 20px;
+  }
+  
+  .form-control {
+    border: none;
+    border-radius: 5px;
+    padding: 10px;
+    background-color: white;
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
+  }
+  
+  .save-profile-button {
+    background-color: #2B85FF;
+    color: white;
+    margin-right: 0.5rem;
+  }
+  
+  .cancel-profile-button {
+    background-color: whitesmoke;
+    color: #2B85FF;
+    border: 1px solid #2B85FF;
+  }
+  /* Custom CSS for profile display section */
+.profile-top {
+    padding: 20px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+  }
+  
+  .profile-image {
+    text-align: center;
+  }
+  
+  .profile-name {
+    color: #2B85FF;
+    font-size: 1.5rem;
+    margin-top: 10px;
+  }
+  
+  .profile-email {
+    color: whitesmoke;
+    font-size: 1rem;
+  }
+  
+  .user-contact,
+  .user-resume {
+    font-size: 0.9rem;
+    color: whitesmoke;
+  }
+  
+  .user-contact svg,
+  .user-resume svg {
+    vertical-align: middle;
+    margin-right: 5px;
+    width: 1rem;
+    height: 1rem;
+  }
+  
+  .user-contact strong,
+  .user-resume strong {
+    color: #2B85FF;
+  }
+  
+  .profile-bottom {
+    margin-top: 20px;
+    color: whitesmoke;
+  }
+  /* Custom CSS for dashboard */
+.dashboard-content {
+    padding: 20px;
+    background-color: whitesmoke;
+  }
+  
+  .dashboard-title {
+    color: #2B85FF;
+    margin-bottom: 20px;
+  }
+  
+  .date {
+    margin-top: 10px;
+    color: #888;
+  }
+  
+  .material-icons-outlined {
+    font-size: 36px;
+    margin-right: 10px;
+  }
+  
+  .insights {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 30px;
+  }
+  
+  .insight-card {
+    padding: 20px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    flex-grow: 1;
+    display: flex;
+    align-items: center;
+    margin: 0 20px;
+  }
+  .insight-card h3{
+   font-weight: bold;
+   font-size: larger;
+  }
+  
+  .insight-icon {
+    color: #2B85FF;
+  }
+  
+  .middle {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    flex-grow: 1;
+  }
+  
+  .left {
+    text-align: left;
+  }
+  
+  .progress-container {
+    position: relative;
+    width: 80px;
+  }
+  
+  .progress-circle {
+    width: 100%;
+    height: auto;
+    transform: rotate(-90deg);
+  }
+  
+  .total-applications-count,
+  .total-interviews-count,
+  .total-offers-count {
+    color: #2B85FF;
+    font-size: 1.5rem;
+    margin-top: 10px;
+  }
+  
+  .recent-applications {
+    margin-top: 30px;
+  }
+  
+  .recent-applications-title {
+    color: #2B85FF;
+    margin-bottom: 10px;
+  }
+  
+  .table {
+    width: 100%;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  th, td {
+    padding: 10px;
+    text-align: left;
+  }
+  
+  th {
+    background-color: #2B85FF;
+    color: white;
+  }
+  
+  tbody tr:nth-child(even) {
+    background-color: whitesmoke;
+  }
+  
+  
+  

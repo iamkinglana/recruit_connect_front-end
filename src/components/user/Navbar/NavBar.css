@@ -1,9 +1,12 @@
+
+
 .navbar {
     display: flex;
     justify-content: space-between;
     align-items: center;
     margin: 10px;
     border: #000 .5px;
+    width: 100vw;
   }
   
   .navbrand {
