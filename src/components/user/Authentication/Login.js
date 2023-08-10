@@ -41,13 +41,13 @@ const LoginPage = ({ setUser }) => {
                 const { user, token } = data;
                 localStorage.setItem('authToken', token);
                 setUser(user);
-                if (user.role === "jobseeker") {
-                    navigate('/home');
-                  } else if (user.role === "employer") {
-                    navigate('/employer-profile');
-                  } else {
-                    console.log("Unknown role:", user.role);
-                  }            })
+                            if (user.role === "jobseeker") {
+              navigate('/home');
+            } else if (user.role === "employer") {
+              navigate('/employer-profile');
+            } else {
+              console.log("Unknown role:", user.role);
+            }            })
             .catch((error) => {
                 console.log("Error:", error);
             });
