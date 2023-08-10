@@ -10,7 +10,7 @@ export default function Profile() {
   const { user, setUser } = useContext(UserContext);
   const navigate = useNavigate();
   const [editMode, setEditMode] = useState(false);
-
+  const [jobSeekerData, setJobSeekerData] = useState([])
   const [activeSection, setActiveSection] = useState('dashboard');
   const [asideOpen, setAsideOpen] = useState(true);
   const [profileImage, setProfileImage] = useState('');
@@ -21,7 +21,7 @@ export default function Profile() {
   const [jobSeekerId, setJobSeekerId] = useState(null);
 
 
-
+  console.log(user);
   const toggleAside = () => {
     setAsideOpen(!asideOpen);
   };
@@ -35,12 +35,11 @@ export default function Profile() {
   };
 
   useEffect(() => {
-    // Set the job seeker ID when the component is mounted
     if (user && user.job_seeker) {
       setJobSeekerId(user.job_seeker.id);
     }
   }, [user]);
-
+ 
   const handleLogout = () => {
     localStorage.removeItem('authToken');
     setUser(null);
@@ -54,10 +53,28 @@ export default function Profile() {
     setEditMode(true);
   };
 
+    useEffect(() => {
+      fetch(`http://localhost:3000/job_seekers/${user.job_seeker.id}`)
+        .then(response => {
+          if (!response.ok) {
+            throw new Error('Failed to fetch data');
+          }
+          return response.json();
+        })
+        .then(data => {
+          setJobSeekerData(data);
+          console.log(jobSeekerData)
+        })
+        .catch(error => {
+          console.error('Error fetching data:', error);
+        });
+    }, []);
+    
+  console.log(jobSeekerData.applications.length)
+
   const handleSaveProfile = async (event) => {
     event.preventDefault();
 
-    // Update profile details through PATCH requests
     try {
       const jobSeekerResponse = await fetch(`http://localhost:3000/job_seekers/${jobSeekerId}`, {
         method: 'PATCH',
@@ -74,7 +91,7 @@ export default function Profile() {
         throw new Error('Failed to update job seeker details');
       }
 
-      const userResponse = await fetch(`http://localhost:3000/users/${user.id}`, {
+      const userResponse = await fetch(`http://localhost:3000/users/`, {
         method: 'PATCH',
         headers: {
           'Content-Type': 'application/json',
@@ -189,7 +206,7 @@ export default function Profile() {
                 </span>        <div className="middle">
                   <div className="left">
                     <h3>Total Applications</h3>
-                    <h1 className="total-applications-count">30</h1>
+                    <h1 className="total-applications-count">{jobSeekerData.applications.length}</h1>
                   </div>
                  
                 </div>
@@ -201,7 +218,7 @@ export default function Profile() {
                 </span>        <div className="middle">
                   <div className="left">
                     <h3>Total Interviews</h3>
-                    <h1 className="total-interviews-count">15</h1>
+                    <h1 className="total-interviews-count">0</h1>
                   </div>
                  
                 </div>
@@ -213,7 +230,7 @@ export default function Profile() {
                 </span>        <div className="middle">
                   <div className="left">
                     <h3>Total Offers</h3>
-                    <h1 className="total-offers-count">5</h1>
+                    <h1 className="total-offers-count">0</h1>
                   </div>
                  
                 </div>
@@ -358,13 +375,30 @@ export default function Profile() {
             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestiae, quo eius laudantium asperiores praesentium quam maxime blanditiis enim sapiente id illum dolorem, omnis, officia quos neque vitae nulla impedit. Expedita temporibus ea ratione voluptate laboriosam! Doloribus saepe, perferendis ducimus eligendi dignissimos et veniam odit id nisi placeat iste quo vitae aspernatur eius inventore libero rem? Ducimus aut enim sapiente consectetur esse tempora unde vero nihil repellendus sequi eius sint sed atque voluptatem nam nisi doloremque nobis nesciunt iste, porro rem, facilis quod eum quidem! Unde aliquam vero perspiciatis incidunt nam? Accusamus laudantium officia eaque in quos quis possimus, maiores impedit, excepturi cupiditate voluptatem natus, magni harum consequatur? Voluptatibus enim totam assumenda saepe ipsam? Quisquam, maxime rerum id tempore consequuntur rem voluptas magnam alias quo vero perspiciatis repudiandae deserunt dolorem omnis facilis sed ea ipsum necessitatibus praesentium ducimus? Fugiat odio facere, ratione, dignissimos dolor distinctio soluta dolorum saepe in sit dolores laborum harum odit velit quidem! Velit nisi praesentium dolore quae neque quia mollitia nesciunt inventore beatae repellendus. Aspernatur placeat veniam sint debitis dignissimos nisi fugiat animi doloribus, accusamus dolor commodi, aliquam esse aperiam quibusdam quidem provident? Tempora id ad non aspernatur, unde repellat asperiores atque, repellendus reiciendis exercitationem reprehenderit tempore!</p>
           </div>
         )}
-        {activeSection === 'applications' && (
-          <div className="applications-content">
-            
+     {activeSection === 'applications' && (
+  <div className="applications-content">
+    <h2>Applications</h2>
+     <table className="table">
+      <thead>
+        <tr>
+          <th>Job Title</th>
+          <th>Application Date</th>
+          <th>Application Status</th>
+        </tr>
+      </thead>
+      <tbody>
+        {jobSeekerData.applications.map((application) => (
+          <tr key={application.id}>
+            <td>Software Engineer</td>
+            <td>{new Date(application.application_date).toLocaleDateString()}</td>
+            <td>{application.application_status}</td>
+          </tr>
+        ))}
+      </tbody>
+    </table> 
+  </div>
+)}
 
-          </div>
-        )}
-     
 
       </main>
     </div>

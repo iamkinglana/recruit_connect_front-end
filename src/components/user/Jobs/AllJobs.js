@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import './Jobs.css'; // Import your custom CSS file for styling
+import './Jobs.css'; 
+import { useNavigate } from 'react-router-dom';
 
 const Jobs = () => {
   const [jobs, setJobs] = useState([]);
+  const navigate = useNavigate();
 
   useEffect(() => {
     fetchJobs();
@@ -18,21 +20,22 @@ const Jobs = () => {
       console.error(error);
     }
   };
+  
 
   return (
     <div className="jobs-container">
       <h2 className="jobs-title">Job List</h2>
       <ul className="jobs-list">
         {jobs.map((job) => (
+          <div className="job-item" onClick={() => {navigate(`/jobs/${job.id}`)}}>
           <li key={job.id} className="job-item">
-            <Link to={`/jobs/${job.id}`} className="job-link">
               <p className="job-title">{job.job_title}</p>
-            </Link>
             <p className="job-description">{job.job_description}</p>
             <p className="job-details">
               Location: {job.job_location} | Level: {job.job_level}
             </p>
           </li>
+          </div>
         ))}
       </ul>
     </div>
