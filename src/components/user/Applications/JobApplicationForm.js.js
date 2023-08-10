@@ -55,10 +55,10 @@ const JobApplicationForm = () => {
         <input type="date" value={applicationDate} readOnly className="form-control" />
         
         <label className="form-label">Resume Attachment:</label>
-        <input type="file" value={resumeAttachment} onChange={(e) => setResumeAttachment(e.target.value)} className="form-control" required />
+        <input type="urk" value={resumeAttachment} onChange={(e) => setResumeAttachment(e.target.value)} className="form-control" required />
         
         <label className="form-label">Cover Letter Attachment:</label>
-        <input type="file" value={coverLetterAttachment} onChange={(e) => setCoverLetterAttachment(e.target.value)} className="form-control" required />
+        <input type="url" value={coverLetterAttachment} onChange={(e) => setCoverLetterAttachment(e.target.value)} className="form-control" required />
         
         
 
