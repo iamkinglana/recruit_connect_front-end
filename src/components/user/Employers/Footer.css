@@ -1,0 +1,27 @@
+/* Footer styles */
+.footer {
+  background-color: #c4b9b9;
+  padding: 20px;
+  text-align: center;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+}
+
+.footer-content {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.footer p {
+  margin: 5px 0;
+}
+
+.footer p:first-child {
+  font-size: 18px;
+}
+
+.footer p:last-child {
+  font-size: 14px;
+}

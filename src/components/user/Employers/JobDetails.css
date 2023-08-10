@@ -1,0 +1,48 @@
+.job-details {
+    padding: 20px;
+  }
+  
+  h2 {
+    font-size: 1.8rem;
+    margin-bottom: 20px;
+  }
+  
+  .job-item {
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 20px;
+    margin-bottom: 20px;
+  }
+  
+  .job-title {
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+  
+  .job-location {
+    font-size: 1rem;
+    color: #666;
+  }
+  
+  .job-description {
+    margin-top: 10px;
+  }
+  
+  .job-info {
+    margin-bottom: 10px;
+  }
+  
+  .job-info-label {
+    font-weight: bold;
+  }
+  
+  .job-link {
+    color: #007bff;
+    text-decoration: none;
+  }
+  
+  .job-link:hover {
+    text-decoration: underline;
+  }
+  

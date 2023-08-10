@@ -1,0 +1,47 @@
+/* Header.css */
+
+/* Style for the header section */
+.header {
+  background-color: white;
+  color: #2411d1;
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  z-index: 3000;
+}
+
+/* Style for the logo */
+.logo {
+  display: inline-block;
+  margin-right: 10px;
+  fill: #fff; /* Color for the SVG logo */
+}
+
+/* Style for the navigation button */
+.toggle-mob-menu {
+  background: none;
+  border: none;
+  cursor: pointer;
+  fill: #fff;
+}
+
+/* Style for the navigation menu */
+.admin-menu {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  margin-left: auto;
+}
+
+/* Style for individual menu items */
+.admin-menu li {
+  margin-left: 20px;
+}
+
+/* Style for the dark mode switch */
+.switch {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+/* Rest of your CSS rules for other elements */

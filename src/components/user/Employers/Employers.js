@@ -20,7 +20,7 @@ function EmployerList() {
 
     useEffect(() => {
         const filteredEmployers = employers.filter((employer) =>
-            employer.name.toLowerCase().includes(searchTerm.toLowerCase())
+            employer.name && employer.name.toLowerCase().includes(searchTerm.toLowerCase())
         );
         setSearchResults(filteredEmployers);
     }, [searchTerm, employers]);

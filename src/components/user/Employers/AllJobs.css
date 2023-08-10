@@ -1,0 +1,41 @@
+
+
+.all-jobs {
+  padding: 20px;
+}
+
+.all-jobs h2 {
+  font-size: 1.8rem;
+  margin-bottom: 20px;
+}
+
+.job-item {
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+
+.job-title {
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.job-location {
+  font-size: 1rem;
+  color: #666;
+}
+
+.job-description {
+  margin-top: 10px;
+}
+
+.job-link {
+  color: #007bff;
+  text-decoration: none;
+}
+
+.job-link:hover {
+  text-decoration: underline;
+}
