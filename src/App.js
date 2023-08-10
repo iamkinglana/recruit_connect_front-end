@@ -3,13 +3,13 @@ import { Route, Routes } from 'react-router-dom';
 import LoginPage from "./components/user/Authentication/Login";
 import Signup from './components/user/Authentication/SignUp';
 import Home from "./components/user/Homepage/Home";
-import AllJobs from "./components/user/AllJobs";
-import JobDetails from "./components/user/JobDetails";
+import AllJobs from "./components/user/Jobs/AllJobs";
+import JobDetails from "./components/user/Jobs/JobDetails";
 import Notification from "./components/user/Notification";
 import NavBar from "./components/user/Navbar/NavBar";
 import ApplicationsAndSavedJobs from "./components/user/SavedJobsandApplications";
 import JobApplication from "./components/user/JobApplication";
-
+import JobApplicationForm from "./components/user/Applications/JobApplicationForm.js";
 import Employers from "./components/user/Employers/Employers";
 import EmployerDetails from "./components/user/Employers/EmployerDetails";
 import Profile from "./components/user/Profile/Profile";
@@ -51,8 +51,8 @@ const App = () => {
         <Route path='home' element={<Home />} />
         <Route path='jobs' element={<AllJobs />} />
         <Route path='jobs/:id' element={<JobDetails />} />
-        <Route path='applications/:id' element={<JobApplication/>} />
-        <Route path='employers' element={<Employers />} />
+        <Route path='applications/:id' element={<JobApplicationForm />} />
+         <Route path='employers' element={<Employers />} />
         <Route path='employers/:id' element={<EmployerDetails/>} />
         <Route path="/ApplicationsAndSavedJobs" element={<ApplicationsAndSavedJobs />} />
         <Route path='notifications' element={<Notification />} />
