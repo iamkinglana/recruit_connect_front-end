@@ -11,11 +11,10 @@ import ApplicationsAndSavedJobs from "./components/user/SavedJobsandApplications
 import JobApplicationForm from "./components/user/Applications/JobApplicationForm.js";
 import Employers from "./components/user/Employers/Employers";
 import Profile from "./components/user/Profile/Profile";
+import { CloudinaryContext } from 'cloudinary-react';
 import EmployerAllJobs from "./components/user/Employers/EmployerAllJobs";
 import JobApplication from "./components/user/JobApplication";
-
 import EmployerDetails from "./components/user/Employers/EmployerDetails";
-
 import AddJobForm from "./components/user/Employers/AddJobForm";
 import EmployerProfile from "./components/user/Employers/EmployerProfile";
 import StatsPage from "./components/user/Employers/Stats";
@@ -53,6 +52,8 @@ const App = () => {
 
   return (
     <UserContext.Provider value={{ user, setUser }}>
+          <CloudinaryContext cloudName="dfqcawque">
+
       <NavBar />
       <Routes>
         <Route path='' element={<Home />} />
@@ -75,6 +76,8 @@ const App = () => {
         <Route path="/stats" element={<StatsPage />} />
         <Route path="/employer-dashboard" element={<EmployerDashboard />} />
       </Routes>
+      </CloudinaryContext>
+
     </UserContext.Provider>
   );
 };
