@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { UserContext } from '../../../App';
 import { useContext } from 'react';
+import './AddJobForm.css';
 
 
 
@@ -40,7 +41,7 @@ const AddJobForm = () => {
     e.preventDefault();
 
     try {
-      const response = await fetch('http://localhost:3000/jobs', {
+      const response = await fetch('/jobs', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -76,8 +77,8 @@ const AddJobForm = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <div>
+    <form className='job-form' onSubmit={handleSubmit}>
+      <div >
         <label>Job Title:</label>
         <input type="text" name="job_title" value={formData.job_title} onChange={handleChange} />
       </div>

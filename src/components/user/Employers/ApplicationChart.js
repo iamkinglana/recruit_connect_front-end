@@ -6,7 +6,7 @@ const ApplicationChart = () => {
 
   useEffect(() => {
     // Fetch application statistics from the backend
-    fetch('https://recruit-connect-vr2.onrender.com/api/application-stats') // Replace with your API endpoint
+    fetch('/application-stats') // Replace with your API endpoint
       .then(response => response.json())
       .then(data => setApplicationStats(data))
       .catch(error => console.error('Error fetching application stats:', error));

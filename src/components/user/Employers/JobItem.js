@@ -9,7 +9,7 @@ const JobItem = ({ job }) => {
   useEffect(() => {
     if (showDetails && !jobDetails) {
       // Fetch job details
-      fetch(`https://recruit-connect-vr2.onrender.com/jobs/${job.id}`) // Update URL
+      fetch(`/jobs/${job.id}`) // Update URL
         .then(response => response.json())
         .then(data => setJobDetails(data))
         .catch(error => console.error('Error fetching job details:', error));
