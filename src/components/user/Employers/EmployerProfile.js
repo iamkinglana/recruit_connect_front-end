@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import './EmployerProfile.css';
-import SideBar from './SideBar';
+// import SideBar from './EmployerBar';
 
 const EmployerProfile = () => {
   const [employerDetails, setEmployerDetails] = useState({
@@ -14,7 +14,7 @@ const EmployerProfile = () => {
 
   useEffect(() => {
     // Fetch employer profile data from the backend
-    fetch('https://recruit-connect-vr2.onrender.com/employer/profile')
+    fetch('/profile')
       .then(response => {
         if (!response.ok) {
           throw new Error(`HTTP error! Status: ${response.status}`);
@@ -27,7 +27,7 @@ const EmployerProfile = () => {
 
   return (
     <div>
-      <SideBar/>
+      {/* <SideBar/> */}
       <h2>Employer Profile</h2>
       <div>
         <label>Company Name:</label>

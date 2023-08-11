@@ -139,7 +139,7 @@ const Home = () => {
                                 </div>
                                 <div className="col-md-2">
                                     <p className={`featured-job-application-deadline ${new Date(job.application_deadline) > new Date() ? 'text-green' : 'text-red'}`}>
-                                        {job.application_deadline.slice(0, 10)}
+                                        {job.application_deadline}
                                     </p>
                                 </div>
                                 <div className="col-md-2">
@@ -153,7 +153,7 @@ const Home = () => {
                         ))}
                     </div>
                 </div>
-            
+
         </>
     );
 };

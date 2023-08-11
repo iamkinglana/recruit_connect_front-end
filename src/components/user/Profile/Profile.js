@@ -4,6 +4,7 @@ import Logo from '../../homepage-icons/recruit-connect-logo.png'
 import './Profile.css'
 import { useNavigate } from 'react-router-dom';
 import { UserContext } from '../../../App';
+import SavedJobs from '../SavedJobs';
 
 export default function Profile() {
   const userContext = useContext(UserContext)
@@ -39,7 +40,7 @@ export default function Profile() {
       setJobSeekerId(user.job_seeker.id);
     }
   }, [user]);
- 
+
   const handleLogout = () => {
     localStorage.removeItem('authToken');
     setUser(null);
@@ -69,8 +70,8 @@ export default function Profile() {
           console.error('Error fetching data:', error);
         });
     }, []);
-    
-  console.log(jobSeekerData.applications.length)
+
+  // console.log(jobSeekerData.applications.length)
 
   const handleSaveProfile = async (event) => {
     event.preventDefault();
@@ -206,9 +207,9 @@ export default function Profile() {
                 </span>        <div className="middle">
                   <div className="left">
                     <h3>Total Applications</h3>
-                    <h1 className="total-applications-count">{jobSeekerData.applications.length}</h1>
+                    <h1 className="total-applications-count">2</h1>
                   </div>
-                 
+
                 </div>
               </div>
 
@@ -220,7 +221,7 @@ export default function Profile() {
                     <h3>Total Interviews</h3>
                     <h1 className="total-interviews-count">0</h1>
                   </div>
-                 
+
                 </div>
               </div>
 
@@ -232,7 +233,7 @@ export default function Profile() {
                     <h3>Total Offers</h3>
                     <h1 className="total-offers-count">0</h1>
                   </div>
-                 
+
                 </div>
               </div>
             </div>
@@ -372,7 +373,8 @@ export default function Profile() {
 
         {activeSection === 'saved-jobs' && (
           <div className="saved-jobs-content">
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestiae, quo eius laudantium asperiores praesentium quam maxime blanditiis enim sapiente id illum dolorem, omnis, officia quos neque vitae nulla impedit. Expedita temporibus ea ratione voluptate laboriosam! Doloribus saepe, perferendis ducimus eligendi dignissimos et veniam odit id nisi placeat iste quo vitae aspernatur eius inventore libero rem? Ducimus aut enim sapiente consectetur esse tempora unde vero nihil repellendus sequi eius sint sed atque voluptatem nam nisi doloremque nobis nesciunt iste, porro rem, facilis quod eum quidem! Unde aliquam vero perspiciatis incidunt nam? Accusamus laudantium officia eaque in quos quis possimus, maiores impedit, excepturi cupiditate voluptatem natus, magni harum consequatur? Voluptatibus enim totam assumenda saepe ipsam? Quisquam, maxime rerum id tempore consequuntur rem voluptas magnam alias quo vero perspiciatis repudiandae deserunt dolorem omnis facilis sed ea ipsum necessitatibus praesentium ducimus? Fugiat odio facere, ratione, dignissimos dolor distinctio soluta dolorum saepe in sit dolores laborum harum odit velit quidem! Velit nisi praesentium dolore quae neque quia mollitia nesciunt inventore beatae repellendus. Aspernatur placeat veniam sint debitis dignissimos nisi fugiat animi doloribus, accusamus dolor commodi, aliquam esse aperiam quibusdam quidem provident? Tempora id ad non aspernatur, unde repellat asperiores atque, repellendus reiciendis exercitationem reprehenderit tempore!</p>
+            <SavedJobs/>
+            {/* <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestiae, quo eius laudantium asperiores praesentium quam maxime blanditiis enim sapiente id illum dolorem, omnis, officia quos neque vitae nulla impedit. Expedita temporibus ea ratione voluptate laboriosam! Doloribus saepe, perferendis ducimus eligendi dignissimos et veniam odit id nisi placeat iste quo vitae aspernatur eius inventore libero rem? Ducimus aut enim sapiente consectetur esse tempora unde vero nihil repellendus sequi eius sint sed atque voluptatem nam nisi doloremque nobis nesciunt iste, porro rem, facilis quod eum quidem! Unde aliquam vero perspiciatis incidunt nam? Accusamus laudantium officia eaque in quos quis possimus, maiores impedit, excepturi cupiditate voluptatem natus, magni harum consequatur? Voluptatibus enim totam assumenda saepe ipsam? Quisquam, maxime rerum id tempore consequuntur rem voluptas magnam alias quo vero perspiciatis repudiandae deserunt dolorem omnis facilis sed ea ipsum necessitatibus praesentium ducimus? Fugiat odio facere, ratione, dignissimos dolor distinctio soluta dolorum saepe in sit dolores laborum harum odit velit quidem! Velit nisi praesentium dolore quae neque quia mollitia nesciunt inventore beatae repellendus. Aspernatur placeat veniam sint debitis dignissimos nisi fugiat animi doloribus, accusamus dolor commodi, aliquam esse aperiam quibusdam quidem provident? Tempora id ad non aspernatur, unde repellat asperiores atque, repellendus reiciendis exercitationem reprehenderit tempore!</p> */}
           </div>
         )}
      {activeSection === 'applications' && (
@@ -395,7 +397,7 @@ export default function Profile() {
           </tr>
         ))}
       </tbody>
-    </table> 
+    </table>
   </div>
 )}
 

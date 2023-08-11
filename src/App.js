@@ -8,13 +8,23 @@ import JobDetails from "./components/user/Jobs/JobDetails";
 import Notification from "./components/user/Notification";
 import NavBar from "./components/user/Navbar/NavBar";
 import ApplicationsAndSavedJobs from "./components/user/SavedJobsandApplications";
-import JobApplication from "./components/user/JobApplication";
 import JobApplicationForm from "./components/user/Applications/JobApplicationForm.js";
 import Employers from "./components/user/Employers/Employers";
-import EmployerDetails from "./components/user/Employers/EmployerDetails";
 import Profile from "./components/user/Profile/Profile";
+import EmployerAllJobs from "./components/user/Employers/EmployerAllJobs";
+import JobApplication from "./components/user/JobApplication";
+
+import EmployerDetails from "./components/user/Employers/EmployerDetails";
+
+import AddJobForm from "./components/user/Employers/AddJobForm";
+import EmployerProfile from "./components/user/Employers/EmployerProfile";
+import StatsPage from "./components/user/Employers/Stats";
+import EmployerDashboard from "./components/user/Employers/EmployerDashboard";
+
+
 
 export const UserContext = createContext();
+
 
 const App = () => {
   const [user, setUser] = useState(null); // Initialize user state
@@ -24,11 +34,11 @@ const App = () => {
     if (authToken) {
         try {
             const payload = JSON.parse(atob(authToken.split('.')[1]));
-            setUser(payload.user); 
+            setUser(payload.user);
             fetch(`http://localhost:3000/users/${payload.user_id}`)
                 .then((response) => response.json())
                 .then((completeUserData) => {
-                    setUser(completeUserData); 
+                    setUser(completeUserData);
                     console.log("Login sucess")
                 })
                 .catch((error) => {
@@ -57,6 +67,13 @@ const App = () => {
         <Route path="/ApplicationsAndSavedJobs" element={<ApplicationsAndSavedJobs />} />
         <Route path='notifications' element={<Notification />} />
         <Route path='profile' element={<Profile />} />
+
+        <Route path="/all-jobs" element={<EmployerAllJobs /> }/>
+        <Route path="/add-job" element={<AddJobForm />} />
+        <Route path="/employer-profile" element={<EmployerProfile />} />
+        <Route path="/job/:jobId" element={<JobDetails />} />
+        <Route path="/stats" element={<StatsPage />} />
+        <Route path="/employer-dashboard" element={<EmployerDashboard />} />
       </Routes>
     </UserContext.Provider>
   );

@@ -1,19 +1,27 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import JobDetails from './JobDetails';
-import JobItem from './JobItem'; // Import the JobItem component
+import JobItem from './JobItem';
 import './AllJobs.css';
+import { UserContext } from '../../../App';
+import { useContext } from 'react';
+
 
 const EmployerAllJobs = () => {
+  const userContext = useContext(UserContext)
+  const { user, setUser } = useContext(UserContext);
+  console.log(user)
+
   const [jobs, setJobs] = useState([]);
   const [selectedJob, setSelectedJob] = useState(null);
 
   useEffect(() => {
-    // Fetch all jobs from the backend when the component mounts
-    fetch('https://http://127.0.0.1:3000/jobs') // Replace with your actual API endpoint
+
+   const userData = fetch(`/jobs`)
       .then(response => response.json())
       .then(data => setJobs(data))
       .catch(error => console.error('Error fetching jobs:', error));
+      setUser(userData);
   }, []);
 
   const handleJobClick = (job) => {
@@ -21,15 +29,14 @@ const EmployerAllJobs = () => {
   };
 
   const handleDeleteJob = (jobId) => {
-    // Perform delete operation and update jobs list
+
     fetch(`http://127.0.0.1:3000/jobs/${jobId}`, {
       method: 'DELETE'
     })
       .then(response => response.json())
       .then(() => {
-        // Remove the deleted job from the list
         setJobs(prevJobs => prevJobs.filter(job => job.id !== jobId));
-        setSelectedJob(null); // Clear selected job details
+        setSelectedJob(null);
       })
       .catch(error => console.error('Error deleting job:', error));
   };
@@ -45,8 +52,8 @@ const EmployerAllJobs = () => {
               job={selectedJob}
               isEditable={false}
               onSave={() => {}}
-              interviewData={{ status: 'Scheduled' }} // Replace with actual interview data
-              applicationCount={10} // Replace with actual application count
+              interviewData={{ status: 'Scheduled' }}
+              applicationCount={10}
             />
           )}
         </div>

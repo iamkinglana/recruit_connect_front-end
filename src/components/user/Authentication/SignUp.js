@@ -51,7 +51,11 @@ const SignUp = ({setUser}) => {
       .then((data) => {
         localStorage.setItem('token', data.token);
         setUser(data.user);
-        navigate('/home');
+        if (role === "jobseeker") {
+          navigate('/home');
+        } else if (role === "employer") {
+          navigate('/employer-profile');
+        }
         console.log("Signup Successful");
       })
       .catch((error) => {
@@ -149,7 +153,7 @@ const SignUp = ({setUser}) => {
                           checked={role === "jobseeker"}
                           onChange={handleRoleChange}
                           required
-                          
+
                         />                                                Job Seeker
                       </label>
                       <label>
