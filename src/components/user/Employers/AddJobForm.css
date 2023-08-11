@@ -58,3 +58,34 @@ button:hover {
     max-width: 100%; 
   }
 }
+
+.job-form {
+  margin: auto;
+  padding: 20px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  width: 600px;
+  background-color: #e2e2e2;
+  border-radius: 10px;
+  box-shadow: 5px 5px 4px rgba(137, 137, 136, 0.6);
+}
+
+.job-form input {
+  width: 100%;
+  border: 1px solid #CCC;
+  padding: 10px;
+  border-radius: 20px;
+  margin-bottom: 10px;
+}
+
+.job-form button {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  background-color: #007bff;
+  color: #fff;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}

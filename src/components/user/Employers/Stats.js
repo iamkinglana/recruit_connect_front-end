@@ -25,7 +25,7 @@ const StatsPage = () => {
       .then(data => setAcceptanceStats(data))
       .catch(error => console.error('Error fetching acceptance stats:', error));
 
-    fetch('https://recruit-connect-vr2.onrender.com/api/interview-stats')
+    fetch('/interview-stats')
       .then(response => response.json())
       .then(data => setInterviewStats(data))
       .catch(error => console.error('Error fetching interview stats:', error));
