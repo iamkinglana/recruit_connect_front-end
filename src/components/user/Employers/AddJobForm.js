@@ -80,31 +80,31 @@ const AddJobForm = () => {
     <form className='job-form' onSubmit={handleSubmit}>
       <div >
         <label>Job Title:</label>
-        <input type="text" name="job_title" value={formData.job_title} onChange={handleChange} />
+        <input type="text" name="job_title" value={formData.job_title} onChange={handleChange} placeholder='Software Developer..'/>
       </div>
       <div>
         <label>Job Description:</label>
-        <input type="text" name="job_description" value={formData.job_description} onChange={handleChange} />
+        <input type="text" name="job_description" value={formData.job_description} onChange={handleChange} placeholder='Team lead..'/>
       </div>
       <div>
         <label>Job Location:</label>
-        <input type="text" name="job_location" value={formData.job_location} onChange={handleChange} />
+        <input type="text" name="job_location" value={formData.job_location} onChange={handleChange} placeholder='Nairobi..'/>
       </div>
       <div>
         <label>Job Category:</label>
-        <input type="text" name="job_category" value={formData.job_category} onChange={handleChange} />
+        <input type="text" name="job_category" value={formData.job_category} onChange={handleChange} placeholder='Technology..'/>
       </div>
       <div>
         <label>Job Level:</label>
-        <input type="text" name="job_level" value={formData.job_level} onChange={handleChange} />
+        <input type="text" name="job_level" value={formData.job_level} onChange={handleChange} placeholder='Intern..' />
       </div>
       <div>
         <label>Job Qualifications:</label>
-        <input type="text" name="job_qualifications" value={formData.job_qualifications} onChange={handleChange} />
+        <input type="text" name="job_qualifications" value={formData.job_qualifications} onChange={handleChange} placeholder='1yr Experience..' />
       </div>
       <div>
         <label>Job Skills:</label>
-        <input type="text" name="job_skills" value={formData.job_skills} onChange={handleChange} />
+        <input type="text" name="job_skills" value={formData.job_skills} onChange={handleChange} placeholder='Java,Reactjs..' />
       </div>
        <div>
         <label>Highest Salary:</label>
