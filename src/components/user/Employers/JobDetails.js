@@ -9,7 +9,7 @@ const JobDetails = ({ job, isEditable, onSave, interviewData }) => {
 
   useEffect(() => {
     // Fetch application count
-    fetch(`/api/job/${job.id}/applications`)
+    fetch(`/jobs/${job.id}/applications`)
       .then(response => response.json())
       .then(data => setApplicationCount(data.count))
       .catch(error => console.error('Error fetching application count:', error));
@@ -24,7 +24,7 @@ const JobDetails = ({ job, isEditable, onSave, interviewData }) => {
     onSave(formData);
 
     try {
-      const response = await fetch(`/api/job/${job.id}`, {
+      const response = await fetch(`/job/${job.id}`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

@@ -9,7 +9,7 @@ const JobItem = ({ job }) => {
   useEffect(() => {
     if (showDetails && !jobDetails) {
       // Fetch job details
-      fetch(`https://recruit-connect-vr2.onrender.com/jobs/${job.id}`) // Update URL
+      fetch(`/jobs/${job.id}`) // Update URL
         .then(response => response.json())
         .then(data => setJobDetails(data))
         .catch(error => console.error('Error fetching job details:', error));
@@ -18,20 +18,20 @@ const JobItem = ({ job }) => {
 
   return (
     <div className="job-item">
-      <h3>{job.jobTitle}</h3>
-      <p>Salary: {job.salaryRange}</p>
+      <h3>{job.job_title}</h3>
+      <p>Salary: {job.salary_highest}</p>
       <p>Application Deadline: {job.applicationDeadline}</p>
       <button onClick={() => setShowDetails(!showDetails)}>
         {showDetails ? 'Hide Details' : 'Show Details'}
       </button>
       {showDetails && (
         <div className="job-details">
-          <p>Location: {job.location}</p>
-          <p>Category: {job.category}</p>
+          <p>Location: {job.job_location}</p>
+          <p>Category: {job.job_category}</p>
           {jobDetails && (
             <div>
-              <p>Company: {jobDetails.company}</p>
-              <p>Description: {jobDetails.description}</p>
+              <p>Company: {job.employer.name}</p>
+              {/* <p>Description: {jobDetails.description}</p> */}
               {/* Include other job details as needed */}
             </div>
           )}

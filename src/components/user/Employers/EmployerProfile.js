@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import './EmployerProfile.css';
-// import SideBar from './EmployerBar';
+import SideBar from './EmployerBar';
 
 const EmployerProfile = () => {
   const [employerDetails, setEmployerDetails] = useState({
@@ -14,7 +14,7 @@ const EmployerProfile = () => {
 
   useEffect(() => {
     // Fetch employer profile data from the backend
-    fetch('/profile')
+    fetch('/employers')
       .then(response => {
         if (!response.ok) {
           throw new Error(`HTTP error! Status: ${response.status}`);
@@ -31,7 +31,7 @@ const EmployerProfile = () => {
       <h2>Employer Profile</h2>
       <div>
         <label>Company Name:</label>
-        <span>{employerDetails.companyName}</span>
+        <span>{employerDetails.employername}</span>
       </div>
       <div>
         <label>Company Logo:</label>
@@ -44,9 +44,9 @@ const EmployerProfile = () => {
       <div>
         <label>Jobs Offered:</label>
         <ul>
-          {employerDetails.jobsOffered.map((job) => (
-            <li key={job}>{job}</li>
-          ))}
+        {employerDetails.jobsOffered && employerDetails.jobsOffered.map((job) => (
+          <li key={job}>{job}</li>
+        ))}
         </ul>
       </div>
       <div>
