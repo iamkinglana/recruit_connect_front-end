@@ -6,7 +6,7 @@ const AcceptanceRateChart = () => {
 
   useEffect(() => {
     // Fetch acceptance rate stats from the backend
-    fetch('https://recruit-connect-vr2.onrender.com/api/acceptance-stats') // Replace with your API endpoint
+    fetch('/acceptance-stats') // Replace with your API endpoint
       .then(response => response.json())
       .then(data => setAcceptanceStats(data))
       .catch(error => console.error('Error fetching acceptance rate stats:', error));
