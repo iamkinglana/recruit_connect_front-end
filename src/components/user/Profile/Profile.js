@@ -71,7 +71,7 @@ export default function Profile() {
         });
     }, []);
 
-  // console.log(jobSeekerData.applications.length)
+  console.log(jobSeekerData.applications.length)
 
   const handleSaveProfile = async (event) => {
     event.preventDefault();
@@ -122,6 +122,28 @@ export default function Profile() {
       console.error('Error updating profile:', error);
     }
   };
+
+  useEffect(() => {
+    if (user && user.job_seeker) {
+      fetch(`http://localhost:3000/job_seekers/${user.job_seeker.id}`)
+        .then(response => {
+          if (!response.ok) {
+            throw new Error('Failed to fetch data');
+          }
+          return response.json();
+        })
+        .then(data => {
+          setJobSeekerData(data);
+          console.log(data);
+        })
+        .catch(error => {
+          console.error('Error fetching data:', error);
+        });
+    }
+  }, [user]);
+
+
+
   return (
     <div className={`container profile-container ${asideOpen ? 'aside-open' : 'aside-closed'}`}>
       <aside>
@@ -207,7 +229,14 @@ export default function Profile() {
                 </span>        <div className="middle">
                   <div className="left">
                     <h3>Total Applications</h3>
-                    <h1 className="total-applications-count">2</h1>
+                    <h1 className="total-applications-count">
+                      {jobSeekerData.applications ? (
+                        <h1 className="total-applications-count">{jobSeekerData.applications.length}</h1>
+                      ) : (
+                        <h1 className="total-applications-count">0</h1>
+                      )}
+
+                    </h1>
                   </div>
 
                 </div>
@@ -400,6 +429,29 @@ export default function Profile() {
     </table>
   </div>
 )}
+        {activeSection === 'applications' && (
+          <div className="applications-content">
+            <h2>Applications</h2>
+            <table className="table">
+              <thead>
+                <tr>
+                  <th>Job Title</th>
+                  <th>Application Date</th>
+                  <th>Application Status</th>
+                </tr>
+              </thead>
+              <tbody>
+                {jobSeekerData.applications.map((application) => (
+                  <tr key={application.id}>
+                    <td>Software Engineer</td>
+                    <td>{new Date(application.application_date).toLocaleDateString()}</td>
+                    <td>{application.application_status}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        )}
 
 
       </main>
