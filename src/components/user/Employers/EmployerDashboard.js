@@ -1,0 +1,77 @@
+import EmployerBar from "./EmployerBar";
+import React, { useState, createContext, useEffect } from "react";
+import { Route, Routes } from 'react-router-dom';
+
+
+
+// import Home from "./components/user/Homepage/Home";
+// import AllJobs from "./components/user/Jobs/AllJobs";
+// import JobDetails from "./components/user/Jobs/JobDetails";
+// import Profile from "./components/user/Profile/Profile";
+import EmployerAllJobs from "./EmployerAllJobs";
+// import JobApplication from "./components/user/JobApplication";
+
+// import EmployerDetails from "./components/user/Employers/EmployerDetails";
+
+import AddJobForm from "./AddJobForm";
+import EmployerProfile from "./EmployerProfile";
+import StatsPage from "./Stats";
+
+
+export const UserContext = createContext();
+
+
+const EmployerDashboard = () => {
+  const [user, setUser] = useState(null);
+
+  useEffect(() => {
+    const authToken = localStorage.getItem('authToken');
+    if (authToken) {
+        try {
+            const payload = JSON.parse(atob(authToken.split('.')[1]));
+            setUser(payload.user);
+            fetch(`http://localhost:3000/users/${payload.user_id}`)
+                .then((response) => response.json())
+                .then((completeUserData) => {
+                    setUser(completeUserData);
+                    console.log("Login sucess")
+                })
+                .catch((error) => {
+                    console.error('Error fetching complete user data:', error);
+                });
+        } catch (error) {
+            console.error('Error decoding token:', error);
+        }
+    }
+}, []);
+
+
+  return (
+    <UserContext.Provider value={{ user, setUser }}>
+      <EmployerBar />
+      <Routes>
+        <Route path='' element={<EmployerProfile />} />
+        {/* <Route path='login' element={<LoginPage setUser={setUser} />} />
+        <Route path="signup" element={<Signup setUser={setUser} />} />
+        <Route path='home' element={<Home />} />
+        <Route path='jobs' element={<AllJobs />} /> */}
+        {/* <Route path='jobs/:id' element={<JobDetails />} />
+        <Route path='applications/:id' element={<JobApplicationForm />} />
+         <Route path='employers' element={<Employers />} /> */}
+        {/* <Route path='employers/:id' element={<EmployerDetails/>} /> */}
+        {/* <Route path="/ApplicationsAndSavedJobs" element={<ApplicationsAndSavedJobs />} /> */}
+        {/* <Route path='notifications' element={<Notification />} /> */}
+        {/* <Route path='profile' element={<Profile />} /> */}
+
+        <Route path="/all-jobs" element={<EmployerAllJobs /> }/>
+        <Route path="/add-job" element={<AddJobForm />} />
+        <Route path="/employer-profile" element={<EmployerProfile />} />
+        {/* <Route path="/job/:jobId" element={<JobDetails />} /> */}
+        <Route path="/stats" element={<StatsPage />} />
+
+      </Routes>
+    </UserContext.Provider>
+  );
+};
+
+export default EmployerDashboard;
