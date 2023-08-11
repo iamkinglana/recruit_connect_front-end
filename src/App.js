@@ -13,6 +13,8 @@ import JobApplicationForm from "./components/user/Applications/JobApplicationFor
 import Employers from "./components/user/Employers/Employers";
 import EmployerDetails from "./components/user/Employers/EmployerDetails";
 import Profile from "./components/user/Profile/Profile";
+import { CloudinaryContext } from 'cloudinary-react';
+
 
 export const UserContext = createContext();
 
@@ -43,6 +45,8 @@ const App = () => {
 
   return (
     <UserContext.Provider value={{ user, setUser }}>
+          <CloudinaryContext cloudName="dfqcawque">
+
       <NavBar />
       <Routes>
         <Route path='' element={<Home />} />
@@ -58,6 +62,8 @@ const App = () => {
         <Route path='notifications' element={<Notification />} />
         <Route path='profile' element={<Profile />} />
       </Routes>
+      </CloudinaryContext>
+
     </UserContext.Provider>
   );
 };

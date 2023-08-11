@@ -15,16 +15,28 @@ const JobApplicationForm = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const applicationData = {
-      job_id: id,
-      application_date: applicationDate,
-      resume_attachment: resumeAttachment,
-      cover_letter_attachment: coverLetterAttachment,
-      job_seeker_id: user.job_seeker.id,
-      application_status: applicationStatus
-    };
-
+  
+    const formData = new FormData();
+    formData.append('file', resumeAttachment);
+    formData.append('file', coverLetterAttachment);
+  
     try {
+      const uploadResponse = await fetch('https://api.cloudinary.com/v1_1/dfqcawque/upload'
+      , {
+        method: 'POST',
+        body: formData,
+      });
+      const uploadData = await uploadResponse.json();
+  
+      const applicationData = {
+        job_id: id,
+        application_date: applicationDate,
+        resume_attachment: uploadData.secure_url,
+        cover_letter_attachment: uploadData.secure_url,
+        job_seeker_id: user.job_seeker.id,
+        application_status: applicationStatus,
+      };
+  
       const response = await fetch('/applications', {
         method: 'POST',
         headers: {
@@ -32,7 +44,7 @@ const JobApplicationForm = () => {
         },
         body: JSON.stringify(applicationData),
       });
-
+  
       if (response.ok) {
         console.log('Application submitted successfully');
       } else {
@@ -42,7 +54,6 @@ const JobApplicationForm = () => {
       console.error('Error submitting application', error);
     }
   };
-
   const handleCancel = () => {
     navigate(`/jobs/${id}`); 
     };
@@ -55,10 +66,10 @@ const JobApplicationForm = () => {
         <input type="date" value={applicationDate} readOnly className="form-control" />
         
         <label className="form-label">Resume Attachment:</label>
-        <input type="urk" value={resumeAttachment} onChange={(e) => setResumeAttachment(e.target.value)} className="form-control" required />
+        <input type="file" value={resumeAttachment} onChange={(e) => setResumeAttachment(e.target.value)} className="form-control" required />
         
         <label className="form-label">Cover Letter Attachment:</label>
-        <input type="url" value={coverLetterAttachment} onChange={(e) => setCoverLetterAttachment(e.target.value)} className="form-control" required />
+        <input type="file" value={coverLetterAttachment} onChange={(e) => setCoverLetterAttachment(e.target.value)} className="form-control" required />
         
         
 
