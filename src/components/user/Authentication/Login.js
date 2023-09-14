@@ -45,7 +45,7 @@ const LoginPage = ({ setUser }) => {
                 if (user.role === "jobseeker") {
                     navigate('/home');
                   } else if (user.role === "employer") {
-                    navigate('/employer-dashboard');
+                    navigate('/add-job');
                   } else {
                     console.log("Unknown role:", user.role);
                   }

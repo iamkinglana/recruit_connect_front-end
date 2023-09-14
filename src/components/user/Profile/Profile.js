@@ -54,24 +54,7 @@ export default function Profile() {
     setEditMode(true);
   };
 
-    useEffect(() => {
-      fetch(`http://localhost:3000/job_seekers/${user.job_seeker.id}`)
-        .then(response => {
-          if (!response.ok) {
-            throw new Error('Failed to fetch data');
-          }
-          return response.json();
-        })
-        .then(data => {
-          setJobSeekerData(data);
-          console.log(jobSeekerData)
-        })
-        .catch(error => {
-          console.error('Error fetching data:', error);
-        });
-    }, []);
 
-  console.log(jobSeekerData.applications.length)
 
   const handleSaveProfile = async (event) => {
     event.preventDefault();

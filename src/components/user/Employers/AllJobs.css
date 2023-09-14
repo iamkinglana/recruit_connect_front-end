@@ -14,12 +14,23 @@
   border-radius: 5px;
   padding: 10px;
   margin-bottom: 10px;
+  width:400px;
+  height: 156px;
+  gap: 22px;
+  display: flex;
+  /* justify-content: center; */
+}
+.job-item p{
+  align-items: flex-start;
 }
 
 .job-title {
   font-size: 1.2rem;
   font-weight: bold;
   margin-bottom: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .job-location {

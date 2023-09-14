@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import './EmployerProfile.css';
 import SideBar from './EmployerBar';
 
+
 const EmployerProfile = () => {
   const [employerDetails, setEmployerDetails] = useState({
     companyName: '',

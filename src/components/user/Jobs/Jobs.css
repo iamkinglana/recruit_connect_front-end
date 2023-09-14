@@ -1,7 +1,8 @@
 .jobs-container {
-    max-width: 800px;
+    /* max-width: 800px; */
     margin: 0 auto;
     padding: 20px;
+
   }
 
   .jobs-title {
@@ -12,6 +13,9 @@
   .jobs-list {
     list-style: none;
     padding: 0;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
   }
 
   .job-item {
@@ -20,6 +24,7 @@
     padding: 20px;
     margin-bottom: 20px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    gap: 32px;
   }
 
   .job-link {

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import './Jobs.css'; 
+import './Jobs.css';
 import { useNavigate } from 'react-router-dom';
 
 const Jobs = () => {
@@ -20,17 +20,17 @@ const Jobs = () => {
       console.error(error);
     }
   };
-  
+
 
   return (
     <div className="jobs-container">
       <h2 className="jobs-title">Job List</h2>
       <ul className="jobs-list">
         {jobs.map((job) => (
-          <div className="job-item" onClick={() => {navigate(`/jobs/${job.id}`)}}>
-          <li key={job.id} className="job-item">
+          <div className="job-item container justify-content-center" onClick={() => {navigate(`/jobs/${job.id}`)}}>
+          <li key={job.id} className="job-item-list ">
               <p className="job-title">{job.job_title}</p>
-            <p className="job-description">{job.job_description}</p>
+            <p className="job-description ">{job.job_description}</p>
             <p className="job-details">
               Location: {job.job_location} | Level: {job.job_level}
             </p>
