@@ -13,7 +13,7 @@ export default function EmployerDetails() {
   const params = useParams()
 
   useEffect(() => {
-    fetch(`http://localhost:3000/employers/${params.id}}`)
+    fetch(`/employers/${params.id}}`)
       .then(res => res.json())
       .then(data => setEmployers(data))
 

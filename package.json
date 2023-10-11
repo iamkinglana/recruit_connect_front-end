@@ -2,7 +2,7 @@
   "name": "recruit_connect_front-end",
   "version": "0.1.0",
   "private": true,
-  "proxy": "http://localhost:3000",
+  "proxy": "https://recruit-connect-vr2.onrender.com",
   "dependencies": {
     "@chakra-ui/react": "^2.8.0",
     "@emotion/react": "^11.9.0",

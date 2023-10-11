@@ -20,9 +20,9 @@ const JobForm = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    
+
     // Perform form submission and API call to store the job data in the backend
-    fetch('https://recruit-connect-vr2.onrender.com/jobs', {
+    fetch('/jobs', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',

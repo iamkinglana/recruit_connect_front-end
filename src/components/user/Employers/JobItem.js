@@ -8,8 +8,7 @@ const JobItem = ({ job }) => {
 
   useEffect(() => {
     if (showDetails && !jobDetails) {
-      // Fetch job details
-      fetch(`/jobs/${job.id}`) // Update URL
+      fetch(`/jobs/${job.id}`)
         .then(response => response.json())
         .then(data => setJobDetails(data))
         .catch(error => console.error('Error fetching job details:', error));
@@ -31,8 +30,6 @@ const JobItem = ({ job }) => {
           {jobDetails && (
             <div>
               <p>Company: {job.employer.name}</p>
-              {/* <p>Description: {jobDetails.description}</p> */}
-              {/* Include other job details as needed */}
             </div>
           )}
           <Link to={`/job/${job.id}`}>View More Details</Link>

@@ -10,7 +10,7 @@ function EmployerList() {
     const [searchResults, setSearchResults] = useState([]);
 
     useEffect(() => {
-        fetch('http://localhost:3000/employers')
+        fetch('/employers')
             .then((r) => r.json())
             .then((data) => setEmployers(data))
             .catch((error) => console.error('Error fetching data:', error));
@@ -22,7 +22,7 @@ function EmployerList() {
         );
         setSearchResults(filteredEmployers);
     }, [searchTerm, employers]);
-    
+
 
     return (
         <div className="container">

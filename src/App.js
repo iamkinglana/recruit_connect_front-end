@@ -34,7 +34,7 @@ const App = () => {
         try {
             const payload = JSON.parse(atob(authToken.split('.')[1]));
             setUser(payload.user);
-            fetch(`http://localhost:3000/users/${payload.user_id}`)
+            fetch(`/users/${payload.user_id}`)
                 .then((response) => response.json())
                 .then((completeUserData) => {
                     setUser(completeUserData);

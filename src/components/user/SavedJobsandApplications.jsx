@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import SavedJobsDashboard from './SavedJobs';
 import JobApplication from './JobApplication';
-import AppliedJobs from './AllJobsApplied';
 import './SavedJobsandApplications.css'
 
 const ApplicationsAndSavedJobs = () => {

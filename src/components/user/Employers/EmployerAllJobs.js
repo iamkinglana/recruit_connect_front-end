@@ -30,7 +30,7 @@ const EmployerAllJobs = () => {
 
   const handleDeleteJob = (jobId) => {
 
-    fetch(`http://127.0.0.1:3000/jobs/${jobId}`, {
+    fetch(`/jobs/${jobId}`, {
       method: 'DELETE'
     })
       .then(response => response.json())

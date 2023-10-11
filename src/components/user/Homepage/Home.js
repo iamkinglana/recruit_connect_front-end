@@ -22,7 +22,7 @@ const Home = () => {
 
     useEffect(() => {
 
-        fetch('http://localhost:3000/jobs')
+        fetch('/jobs')
             .then(response => response.json())
             .then(data => setFeaturedJobs(data))
             .catch(error => console.error('Error fetching featured jobs:', error));
