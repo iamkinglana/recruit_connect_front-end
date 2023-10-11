@@ -25,7 +25,7 @@ const SignUp = ({setUser}) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    fetch('/signup', {
+    fetch('https://recruit-connect-vr2.onrender.com/signup', {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
