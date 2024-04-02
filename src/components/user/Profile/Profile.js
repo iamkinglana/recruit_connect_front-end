@@ -60,7 +60,7 @@ export default function Profile() {
     event.preventDefault();
 
     try {
-      const jobSeekerResponse = await fetch(`http://localhost:3000/job_seekers/${jobSeekerId}`, {
+      const jobSeekerResponse = await fetch(`/job_seekers/${jobSeekerId}`, {
         method: 'PATCH',
         headers: {
           'Content-Type': 'application/json',
@@ -75,7 +75,7 @@ export default function Profile() {
         throw new Error('Failed to update job seeker details');
       }
 
-      const userResponse = await fetch(`http://localhost:3000/users/`, {
+      const userResponse = await fetch(`/users/`, {
         method: 'PATCH',
         headers: {
           'Content-Type': 'application/json',
@@ -108,7 +108,7 @@ export default function Profile() {
 
   useEffect(() => {
     if (user && user.job_seeker) {
-      fetch(`http://localhost:3000/job_seekers/${user.job_seeker.id}`)
+      fetch(`/job_seekers/${user.job_seeker.id}`)
         .then(response => {
           if (!response.ok) {
             throw new Error('Failed to fetch data');
